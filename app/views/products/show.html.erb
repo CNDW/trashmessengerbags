@@ -11,8 +11,18 @@
 </p>
 
 <p>
-  <strong>Type:</strong>
-  <%= @product.type %>
+  <strong>Category:</strong>
+  <%= @product.category %>
+</p>
+
+<p>
+  <strong>Product Type:</strong>
+  <%= @product.product_type %>
+</p>
+
+<p>
+  <strong>Product Model:</strong>
+  <%= @product.product_model %>
 </p>
 
 <p>
@@ -23,16 +33,6 @@
 <p>
   <strong>Pid:</strong>
   <%= @product.pid %>
-</p>
-
-<p>
-  <strong>Product model:</strong>
-  <%= @product.product_model %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @product.category %>
 </p>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |

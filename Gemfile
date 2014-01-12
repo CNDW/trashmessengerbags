@@ -46,16 +46,14 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 group :development, :test do
   gem 'guard-rspec'
   gem 'guard-livereload'
-  gem 'spork-rails', github: 'sporkrb/spork-rails'
-  gem 'guard-spork'
   gem 'childprocess'
+  gem 'growl_notify'
 end
 
 group :test do
   gem 'rspec-rails'
   gem 'selenium-webdriver', '~> 2.35.1'
   gem 'capybara', '2.1.0'
-  gem 'factory_girl_rails'
   gem 'cucumber', '1.2.5'
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'

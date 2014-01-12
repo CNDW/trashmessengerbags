@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    User.create_admin_on_empty_db if User.count == 0
     @users = User.order(:name)
   end
 

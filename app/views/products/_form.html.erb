@@ -20,24 +20,20 @@
     <%= f.text_field :desc %>
   </div>
   <div class="field">
-    <%= f.label :type %><br>
-    <%= f.text_field :type %>
+    <%= f.label "Product Category" %><br>
+    <%= f.text_field :category %>
+  </div>
+  <div class="field">
+    <%= f.label "Product Type" %><br>
+    <%= f.text_field :product_type %>
+  </div>
+  <div class="field">
+    <%= f.label "Product Model" %><br>
+    <%= f.text_field :product_model %>
   </div>
   <div class="field">
     <%= f.label :price %><br>
     <%= f.number_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :pid %><br>
-    <%= f.number_field :pid %>
-  </div>
-  <div class="field">
-    <%= f.label :product_model %><br>
-    <%= f.text_field :product_model %>
-  </div>
-  <div class="field">
-    <%= f.label :category %><br>
-    <%= f.text_field :category %>
   </div>
   <div class="actions">
     <%= f.submit %>
