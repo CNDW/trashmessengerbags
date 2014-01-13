@@ -1,0 +1,12 @@
+<h1>Product Builder Index</h1>
+
+<body>
+  Select a product to begin<br>
+  <form>
+    <% @products.each do |product| %>
+      <%= radio_button_tag(:product, product.desc) %>
+      <%= label_tag(product.name, product.name) %>
+    <%end%><br>
+    <input type="submit" value="Begin">
+  </form>
+</body>
