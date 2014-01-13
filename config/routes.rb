@@ -1,4 +1,6 @@
 Trashmessengerbags::Application.routes.draw do
+  resources :product_categories
+
   get "product_builder/product_finish"
   get "product_builder/next_step"
   get "product_builder/product_start"
