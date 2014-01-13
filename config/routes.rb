@@ -1,4 +1,7 @@
 Trashmessengerbags::Application.routes.draw do
+  get "product_builder/product_finish"
+  get "product_builder/next_step"
+  get "product_builder/product_start"
   get "admin/index"
   get "sessions/new"
   get "sessions/create"
