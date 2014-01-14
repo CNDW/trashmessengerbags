@@ -1,0 +1,52 @@
+<%= form_for(@product_model) do |f| %>
+  <% if @product_model.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product_model.errors.count, "error") %> prohibited this product_model from being saved:</h2>
+
+      <ul>
+      <% @product_model.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :value %><br>
+    <%= f.text_field :value %>
+  </div>
+  <div class="field">
+    <%= f.label :desc %><br>
+    <%= f.text_field :desc %>
+  </div>
+  <div class="field">
+    <%= f.label :available_options %><br>
+    <%= f.text_field :available_options %>
+  </div>
+  <div class="field">
+    <%= f.label :available_colors %><br>
+    <%= f.text_field :available_colors %>
+  </div>
+  <div class="field">
+    <%= f.label :available_sizes %><br>
+    <%= f.text_field :available_sizes %>
+  </div>
+  <div class="field">
+    <select name="product_model[item_type]">
+      <% ProductType.all.each do |type| %>
+        <option value="<%= type.name %>"><%= type.name %></option>
+      <% end %>
+    </select>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
