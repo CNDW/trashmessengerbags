@@ -28,11 +28,7 @@
     <%= f.text_field :desc %>
   </div>
   <div class="field">
-    <select name="product_type[item_category]">
-      <% ProductCategory.all.each do |category| %>
-        <option value="<%= category.name %>"><%= category.name %></option>
-      <% end %>
-    </select>
+    <%= collection_select(:product_type, :product_category_id, ProductCategory.all, :id, :name) %>
   </div>
   <div class="actions">
     <%= f.submit %>

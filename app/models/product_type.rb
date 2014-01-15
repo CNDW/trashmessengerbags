@@ -1,6 +1,6 @@
 class ProductType < ActiveRecord::Base
   belongs_to :productcategory
-  belongs_to :productmodel
+  has_many :productmodel
   before_save :fetch_available_models
   validates :item_category, presence: true
   
