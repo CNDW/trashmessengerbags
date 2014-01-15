@@ -1,5 +1,6 @@
 class ProductCategory < ActiveRecord::Base
   has_many :producttype
+  has_many :productmodel, through: :producttype
   before_save :fetch_available_types
   def category_name
     "#{self.name}"
