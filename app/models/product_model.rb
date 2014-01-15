@@ -1,4 +1,4 @@
 class ProductModel < ActiveRecord::Base
-  belongs_to :producttype
-  validates :item_type, presence: true
+  belongs_to :product_type
+  validates :product_type_id, presence: true
 end

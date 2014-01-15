@@ -11,33 +11,13 @@
 </p>
 
 <p>
-  <strong>Value:</strong>
-  <%= @product_model.value %>
-</p>
-
-<p>
   <strong>Desc:</strong>
   <%= @product_model.desc %>
 </p>
 
 <p>
-  <strong>Available options:</strong>
-  <%= @product_model.available_options %>
-</p>
-
-<p>
-  <strong>Available colors:</strong>
-  <%= @product_model.available_colors %>
-</p>
-
-<p>
-  <strong>Available sizes:</strong>
-  <%= @product_model.available_sizes %>
-</p>
-
-<p>
   <strong>Item type:</strong>
-  <%= @product_model.item_type %>
+  <%= @product_model.product_type.name %>
 </p>
 
 <%= link_to 'Edit', edit_product_model_path(@product_model) %> |

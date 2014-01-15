@@ -5,12 +5,8 @@
     <tr>
       <th>Name</th>
       <th>Price</th>
-      <th>Value</th>
       <th>Desc</th>
-      <th>Available options</th>
-      <th>Available colors</th>
-      <th>Available sizes</th>
-      <th>Item type</th>
+      <th>Type</th>
       <th></th>
       <th></th>
       <th></th>
@@ -22,12 +18,8 @@
       <tr>
         <td><%= product_model.name %></td>
         <td><%= product_model.price %></td>
-        <td><%= product_model.value %></td>
         <td><%= product_model.desc %></td>
-        <td><%= product_model.available_options %></td>
-        <td><%= product_model.available_colors %></td>
-        <td><%= product_model.available_sizes %></td>
-        <td><%= product_model.item_type %></td>
+        <td><%= product_model.product_type.name %></td>
         <td><%= link_to 'Show', product_model %></td>
         <td><%= link_to 'Edit', edit_product_model_path(product_model) %></td>
         <td><%= link_to 'Destroy', product_model, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,14 +1,9 @@
 class ProductType < ActiveRecord::Base
-  belongs_to :productcategory
-  has_many :productmodel
-  before_save :fetch_available_models
-  validates :item_category, presence: true
+  belongs_to :product_category
+  has_many :product_models, autosave: true
+  validates :product_category_id, presence: true
   
-  def fetch_available_models
-    self.available_models = []
-    ProductModel.all.each do |model|
-      self.available_models_will_change!
-      self.available_models << model.name if model.item_type == self.name
-    end
+  def type_models
+    self.product_models.collect { |model| model.name }
   end
 end

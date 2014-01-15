@@ -11,23 +11,18 @@
 </p>
 
 <p>
-  <strong>Value:</strong>
-  <%= @product_type.value %>
-</p>
-
-<p>
   <strong>Desc:</strong>
   <%= @product_type.desc %>
 </p>
 
 <p>
   <strong>Available models:</strong>
-  <%= @product_type.available_models %>
+  <%= @product_type.type_models %>
 </p>
 
 <p>
   <strong>Product Category:</strong>
-  <%= @product_type.item_category %>
+  <%= @product_type.product_category.name%>
 </p>
 
 <%= link_to 'Edit', edit_product_type_path(@product_type) %> |

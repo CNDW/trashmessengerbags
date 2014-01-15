@@ -20,24 +20,8 @@
     <%= f.text_field :price %>
   </div>
   <div class="field">
-    <%= f.label :value %><br>
-    <%= f.text_field :value %>
-  </div>
-  <div class="field">
     <%= f.label :desc %><br>
     <%= f.text_field :desc %>
-  </div>
-  <div class="field">
-    <%= f.label :available_options %><br>
-    <%= f.text_field :available_options %>
-  </div>
-  <div class="field">
-    <%= f.label :available_colors %><br>
-    <%= f.text_field :available_colors %>
-  </div>
-  <div class="field">
-    <%= f.label :available_sizes %><br>
-    <%= f.text_field :available_sizes %>
   </div>
   <div class="field">
     <%= collection_select(:product_model, :product_type_id, ProductType.all, :id, :name) %>
