@@ -1,0 +1,34 @@
+<h1>Listing custom_items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>id</th>
+      <th>category</th>
+      <th>type</th>
+      <th>model</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody><% @custom_items.each do |custom_item| %>
+      <tr>
+        <td><%= custom_item.name %></td>
+        <td><%= custom_item.id %></td>
+        <td><%= custom_item.product_category %></td>
+        <td><%= custom_item.product_type %></td>
+        <td><%= custom_item.product_model %></td>
+        <td><%= link_to 'Show', @custom_item %></td>
+        <td><%= link_to 'Edit', edit_custom_item_path(@custom_item) %></td>
+        <td><%= link_to 'Destroy', custom_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Custom item', new_custom_item_path %>

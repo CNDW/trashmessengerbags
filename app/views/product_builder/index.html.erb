@@ -2,11 +2,10 @@
 
 <body>
   Select a product to begin<br>
-  <form>
-    <% @products.each do |product| %>
-      <%= radio_button_tag(:product, product.desc) %>
+  <% form_for(@product_categories) do |f| %>
+    <% @product_categories.each do |product| %>
+      <%= radio_button_tag(:product, product.name) %>
       <%= label_tag(product.name, product.name) %>
-    <%end%><br>
-    <input type="submit" value="Begin">
-  </form>
+    <% end %><br>
+  <% end %>
 </body>

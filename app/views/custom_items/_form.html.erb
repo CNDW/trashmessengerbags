@@ -1,0 +1,20 @@
+<%= form_for @custom_item, remote: true, format: :json do |f| %>
+  <% if @custom_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@custom_item.errors.count, "error") %> prohibited this custom_item from being saved:</h2>
+
+      <ul>
+      <% @custom_item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="custom_product">
+  <div class="category" >Select a product category to begin.<br>
+    <%= collection_radio_buttons(@custom_item, :product_category_id, ProductCategory.all, :id, :name) %>
+    <%= f.submit %>
+  </div>
+  
+</div>
+<% end %>

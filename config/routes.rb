@@ -1,4 +1,6 @@
 Trashmessengerbags::Application.routes.draw do
+  resources :custom_items
+
   resources :product_models
 
   resources :product_types
@@ -16,7 +18,9 @@ Trashmessengerbags::Application.routes.draw do
 
   resources :products
   
-  root 'product_builder#index'
+  resources :custom_builder
+  
+  root 'custom_items#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

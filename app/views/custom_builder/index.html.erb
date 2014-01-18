@@ -1,0 +1,8 @@
+<h1>Custom Shop</h1>
+
+<body>
+  Select a product category to begin<br>
+    <div class="category">
+      <%= collection_radio_buttons(@line_item, :item_category, ProductCategory.all, :name, :name) %>
+    </div>
+</body>
