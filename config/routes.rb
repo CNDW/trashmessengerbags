@@ -1,6 +1,5 @@
 Trashmessengerbags::Application.routes.draw do
   resources :custom_items 
-  get 'custom_items/category_click/:product_category_id', to: 'custom_items#category_click'
   
   resources :product_models
 
@@ -8,18 +7,11 @@ Trashmessengerbags::Application.routes.draw do
 
   resources :product_categories
 
-  get "product_builder/product_finish"
-  get "product_builder/next_step"
-  get "product_builder/product_start"
   get "admin/index"
   get "sessions/new"
   get "sessions/create"
   get "sessions/destroy"
   resources :users
-
-  resources :products
-  
-  resources :custom_builder
   
   root 'custom_items#index'
 
