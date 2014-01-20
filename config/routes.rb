@@ -1,6 +1,7 @@
 Trashmessengerbags::Application.routes.draw do
-  resources :custom_items
-
+  resources :custom_items 
+  get 'custom_items/category_click/:product_category_id', to: 'custom_items#category_click'
+  
   resources :product_models
 
   resources :product_types

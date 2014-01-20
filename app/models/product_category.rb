@@ -10,4 +10,5 @@ class ProductCategory < ActiveRecord::Base
   def category_types
     self.product_types.collect { |type| type.name }
   end
+  
 end

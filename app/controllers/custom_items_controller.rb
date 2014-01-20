@@ -1,6 +1,5 @@
 class CustomItemsController < ApplicationController
   before_action :set_custom_item, only: [:show, :edit, :update, :destroy]
-
   # GET /custom_items
   # GET /custom_items.json
   def index
@@ -28,7 +27,6 @@ class CustomItemsController < ApplicationController
 
     respond_to do |format|
       if @custom_item.save
-        format.js   { redirect_to @custom_item }
         format.html { redirect_to @custom_item, notice: 'Custom item was successfully created.' }
         format.json { render action: 'show', status: :created, location: @custom_item }
       else
@@ -62,6 +60,11 @@ class CustomItemsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def category_click
+    selected_category_types = ProductCategory.find(params[:product_category_id]).category_types
+    render json: selected_category_types, status: :ok 
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -71,6 +74,6 @@ class CustomItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def custom_item_params
-      params.permit(:custom_item, :product_category_id, :product_type_id, :product_model_id)
+      params.require(:custom_item).permit(:product_category_id, :product_type_id, :product_model_id)
     end
 end
