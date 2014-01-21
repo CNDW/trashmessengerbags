@@ -1,4 +1,6 @@
 Trashmessengerbags::Application.routes.draw do
+  resources :product_options
+
   resources :custom_items 
   
   resources :product_models
