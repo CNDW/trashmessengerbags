@@ -1,0 +1,48 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/
+types = new Array()
+<% ProductType.all.each do |type| %>
+types.push [<%= type.id %>, <%= type.product_category_id %>]
+<% end %>
+models = new Array()
+<% ProductModel.all.each do |model| %>
+models.push [<%= model.id %>, <%= model.product_type_id %>]
+<% end %>
+
+categorySelected = ->
+    $(".custom_product .type").show()
+    $(".custom_product .type input:radio:checked").attr('checked', false)
+    category_id = Number($(".custom_product .category input:radio:checked").val())
+    types.forEach (type)->
+        if (type[1] == category_id)
+            $(".custom_product .type input[type=radio][value=" + type[0] + "]").show()
+            $(".custom_product .type input[type=radio][value=" + type[0] + "] + label").show()
+        if (type[1] != category_id)
+            $(".custom_product .type input[type=radio][value=" + type[0] + "]").hide()
+            $(".custom_product .type input[type=radio][value=" + type[0] + "] + label").hide()
+
+typeSelected = ->
+    $(".custom_product .model").show()
+    $(".custom_product .model input:radio:checked").attr('checked', false)
+    type_id = Number($(".custom_product .type input:radio:checked").val())
+    models.forEach (model)->
+        if (model[1] == type_id)
+            $(".custom_product .model input[type=radio][value=" + model[0] + "]").show()
+            $(".custom_product .model input[type=radio][value=" + model[0] + "] + label").show()
+        if (model[1] != type_id)
+            $(".custom_product .model input[type=radio][value=" + model[0] + "]").hide()
+            $(".custom_product .model input[type=radio][value=" + model[0] + "] + label").hide()
+
+
+$ ->
+    $(".custom_product .category input[type=radio]").on "click", categorySelected
+
+
+$ ->
+    $(".custom_product .type input[type=radio]").on "click", typeSelected 
+
+
+$ ->
+    $(".custom_product .model").on "click", "input:radio", ->
+        #$(this).parents("form").trigger("submit")
