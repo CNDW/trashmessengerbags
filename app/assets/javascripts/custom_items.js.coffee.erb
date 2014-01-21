@@ -29,15 +29,17 @@ radioButtonChange = (button, parentButton, itemArray)->
             $(button + "[value=" + item[0] + "] + label").hide()
    
 $ ->
-    $(categoryRadio).on "click", ->
+    $(document).on "click", categoryRadio, ->
+        $(".custom_product .submit").hide()
         $(".custom_product .model").hide()
         radioButtonChange(typeRadio, categoryRadio, types)
 
 
 $ ->
-    $(typeRadio).on "click", ->
+    $(document).on "click", typeRadio, ->
+        $(".custom_product .submit").hide()
         radioButtonChange(modelRadio, typeRadio, models)
 
 $ ->
-    $(".custom_product .model").on "click", "input:radio", ->
-        #$(this).parents("form").trigger("submit")
+    $(document).on "click", modelRadio, ->
+        $(".custom_product .submit").show()

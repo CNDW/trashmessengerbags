@@ -30,6 +30,7 @@ class CustomItemsController < ApplicationController
         format.html { redirect_to @custom_item, notice: 'Custom item was successfully created.' }
         format.json { render action: 'show', status: :created, location: @custom_item }
       else
+        format.js
         format.html { render action: 'new' }
         format.json { render json: @custom_item.errors, status: :unprocessable_entity }
       end
@@ -59,11 +60,6 @@ class CustomItemsController < ApplicationController
       format.html { redirect_to custom_items_url }
       format.json { head :no_content }
     end
-  end
-  
-  def category_click
-    selected_category_types = ProductCategory.find(params[:product_category_id]).category_types
-    render json: selected_category_types, status: :ok 
   end
 
   private
