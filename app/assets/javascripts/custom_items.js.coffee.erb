@@ -14,33 +14,29 @@ categoryRadio = ".custom_product .category input[type=radio]"
 typeRadio = ".custom_product .type input[type=radio]"
 modelRadio = ".custom_product .model input[type=radio]"
 
+#button = button to change, parentButton = selected button, itemArray = options for button
+radioButtonChange = (button, parentButton, itemArray)->
+    $($(button).parent()).hide()
+    $(button + ":checked").attr('checked', false)
+    value = Number($(parentButton + ":checked").val())
+    itemArray.forEach (item)->
+        if (item[1] == value)
+            $(button + "[value=" + item[0] + "]").show()
+            $(button + "[value=" + item[0] + "] + label").show()
+            $($(button).parent()).show() if $($(button).parent()).is(":hidden")
+        if (item[1] != value)
+            $(button + "[value=" + item[0] + "]").hide()
+            $(button + "[value=" + item[0] + "] + label").hide()
+   
 $ ->
     $(categoryRadio).on "click", ->
-        $(".custom_product .type").show()
-        $(typeRadio + ":checked").attr('checked', false)
-        category_id = Number($(categoryRadio + ":checked").val())
-        types.forEach (type)->
-            if (type[1] == category_id)
-                $(typeRadio + "[value=" + type[0] + "]").show()
-                $(typeRadio + "[value=" + type[0] + "] + label").show()
-            if (type[1] != category_id)
-                $(typeRadio + "[value=" + type[0] + "]").hide()
-                $(typeRadio + "[value=" + type[0] + "] + label").hide()
+        $(".custom_product .model").hide()
+        radioButtonChange(typeRadio, categoryRadio, types)
 
 
 $ ->
     $(typeRadio).on "click", ->
-        $(".custom_product .model").show()
-        $(modelRadio + ":checked").attr('checked', false)
-        type_id = Number($(typeRadio + ":checked").val())
-        models.forEach (model)->
-            if (model[1] == type_id)
-                $(modelRadio + "[value=" + model[0] + "]").show()
-                $(modelRadio + "[value=" + model[0] + "] + label").show()
-            if (model[1] != type_id)
-                $(modelRadio + "[value=" + model[0] + "]").hide()
-                $(modelRadio + "[value=" + model[0] + "] + label").hide()
-
+        radioButtonChange(modelRadio, typeRadio, models)
 
 $ ->
     $(".custom_product .model").on "click", "input:radio", ->
