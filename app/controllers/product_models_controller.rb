@@ -40,6 +40,9 @@ class ProductModelsController < ApplicationController
   # PATCH/PUT /product_models/1
   # PATCH/PUT /product_models/1.json
   def update
+    @product_model.product_options.clear
+    @product_model.product_option_ids=params[:product_model][:product_option_ids]
+    
     respond_to do |format|
       if @product_model.update(product_model_params)
         format.html { redirect_to @product_model, notice: 'Product model was successfully updated.' }
@@ -69,6 +72,6 @@ class ProductModelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_model_params
-      params.require(:product_model).permit(:name, :price, :desc, :product_type_id)
+      params.require(:product_model).permit(:name, :price, :desc, :product_type_id, :product_option_ids => [] )
     end
 end

@@ -14,7 +14,7 @@ categoryRadio = ".custom_product .category input[type=radio]"
 typeRadio = ".custom_product .type input[type=radio]"
 modelRadio = ".custom_product .model input[type=radio]"
 
-//button = button to change, parentButton = selected button, itemArray = options for button
+#button = button to change, parentButton = selected button, itemArray = options for button
 radioButtonChange = (button, parentButton, itemArray)->
     $($(button).parent()).hide() 
     $(button + ":checked").attr('checked', false)

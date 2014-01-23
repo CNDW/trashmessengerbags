@@ -20,5 +20,10 @@
   <%= @product_model.product_type.name %>
 </p>
 
+<p>
+  <strong>Options</strong>
+  <%= @product_model.product_option_ids %>
+</p>
+
 <%= link_to 'Edit', edit_product_model_path(@product_model) %> |
 <%= link_to 'Back', product_models_path %>

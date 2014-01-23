@@ -15,7 +15,6 @@
     <% @product_options.each do |product_option| %>
       <tr>
         <td><%= product_option.name %></td>
-        <td><%= product_option.product_model_id %></td>
         <td><%= link_to 'Show', product_option %></td>
         <td><%= link_to 'Edit', edit_product_option_path(product_option) %></td>
         <td><%= link_to 'Destroy', product_option, method: :delete, data: { confirm: 'Are you sure?' } %></td>

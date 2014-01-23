@@ -15,9 +15,9 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :product_model_id %><br>
-    <%= f.text_field :product_model_id %>
+  <div class="checkboxes">
+    Models that have this option<br>
+    <%= f.collection_check_boxes(:product_model_ids, ProductModel.all, :id, :name, options = {"checked" => :product_model_ids}) %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -26,6 +26,10 @@
   <div class="field">
     <%= collection_select(:product_model, :product_type_id, ProductType.all, :id, :name) %>
   </div>
+  <div class="checkboxes">
+    Options available for model<br>
+    <%= f.collection_check_boxes(:product_option_ids, ProductOption.all, :id, :name, options = {"checked" => :product_option_ids}) %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
