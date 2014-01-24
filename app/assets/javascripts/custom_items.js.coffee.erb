@@ -7,7 +7,7 @@ types.push [<%= type.id %>, <%= type.product_category_id %>]
 <% end %>
 models = new Array()
 <% ProductModel.all.each do |model| %>
-models.push [<%= model.id %>, <%= model.product_type_id %>]
+models.push [<%= model.id %>, <%= model.product_type_id %>, <%= model.product_option_ids %>]
 <% end %>
 
 categoryRadio = ".custom_product .category input[type=radio]"
@@ -16,6 +16,8 @@ modelRadio = ".custom_product .model input[type=radio]"
 
 #button = button to change, parentButton = selected button, itemArray = options for button
 radioButtonChange = (button, parentButton, itemArray)->
+    $(".custom_product .submit").hide()
+    $(".custom_product .options").hide()
     $($(button).parent()).hide() 
     $(button + ":checked").attr('checked', false)
     value = Number($(parentButton + ":checked").val())
@@ -30,16 +32,35 @@ radioButtonChange = (button, parentButton, itemArray)->
    
 $ ->
     $(document).on "click", categoryRadio, ->
-        $(".custom_product .submit").hide()
         $(".custom_product .model").hide()
         radioButtonChange(typeRadio, categoryRadio, types)
 
-
 $ ->
     $(document).on "click", typeRadio, ->
-        $(".custom_product .submit").hide()
         radioButtonChange(modelRadio, typeRadio, models)
 
 $ ->
     $(document).on "click", modelRadio, ->
+        $(".custom_product .options").hide()
         $(".custom_product .submit").show()
+        value = Number($(modelRadio + ":checked").val())
+        options = new Array()
+        models.forEach (model)->
+            options = model[2] if model[0] is value
+        $(".custom_product .options input[type=checkbox]").each ->
+            if ($.inArray(Number($(this).val()), options) != -1)
+                $(".custom_product .options").show() if $(".custom_product .options").is(":hidden")
+                $(this).show()
+                $(".custom_product .options label[for=" + $(this).attr('id') + "]").show()
+            else
+                $(this).hide()
+                $(".custom_product .options label[for=" + $(this).attr('id') + "]").hide()
+
+
+
+
+
+
+
+
+ 

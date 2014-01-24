@@ -8,6 +8,7 @@
       <th>category</th>
       <th>type</th>
       <th>model</th>
+      <th>options</th>
       <th></th>
       <th></th>
       <th></th>
@@ -21,6 +22,11 @@
         <td><%= custom_item.product_category.name %></td>
         <td><%= custom_item.product_type.name %></td>
         <td><%= custom_item.product_model.name %></td>
+        <td>
+          <% custom_item.product_options.each do |option| %>
+            <%= option.name %>
+          <% end %>
+        </td>
         <td><%= link_to 'Show', custom_item %></td>
         <td><%= link_to 'Edit', edit_custom_item_path(custom_item) %></td>
         <td><%= link_to 'Destroy', custom_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>

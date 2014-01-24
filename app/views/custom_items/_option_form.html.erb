@@ -1,0 +1,4 @@
+<div class="options" >
+  Select custom options.<br>
+  <%= collection_check_boxes(:custom_item, :product_option_ids, ProductOption.all, :id, :name) %>
+</div>
