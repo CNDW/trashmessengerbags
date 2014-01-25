@@ -8,8 +8,9 @@ Trashmessengerbags::Application.routes.draw do
   resources :product_types
 
   resources :product_categories
-
-  get "admins/new"
+  
+  resources :admins
+  
   get "sessions/new"
   get "sessions/create"
   get "sessions/destroy"

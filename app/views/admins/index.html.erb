@@ -1,0 +1,29 @@
+<h1>Listing product_categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @product_categories.each do |product_category| %>
+      <tr>
+        <td><%= admin.name %></td>
+        <td><%= admin.price %></td>
+        <td><%= link_to 'Show', admin %></td>
+        <td><%= link_to 'Edit', edit_admin_path(admin) %></td>
+        <td><%= link_to 'Destroy', admin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New admin', new_admin_path %>
