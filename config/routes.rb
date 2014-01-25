@@ -11,9 +11,10 @@ Trashmessengerbags::Application.routes.draw do
   
   resources :admins
   
-  get "sessions/new"
-  get "sessions/create"
-  get "sessions/destroy"
+  resources :sessions, only: [:new, :create, :destroy]
+  match '/signin', to: 'sessions#new', via: 'get'
+  match '/signout', to: 'sessions#destroy', via: 'delete'
+  
   resources :users
   
   root 'custom_items#index'

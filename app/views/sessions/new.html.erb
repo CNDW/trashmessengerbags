@@ -1,21 +1,21 @@
 <div class="trash_form">
-  <% if flash[:alert] %>
-    <p id="notice"><%= flash[:alert] %></p>
+  <% if flash[:error] %>
+    <p id="notice"><%= flash[:error] %></p>
   <% end %>
-  <%= form_tag do %>
+  <%= form_for(:session, url: sessions_path) do |f| %>
     <fieldset>
       <legend>Please Log In</legend>
       
       <div>
-        <%= label_tag :name, 'Name:' %>
-        <%= text_field_tag :name, params[:name] %>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
       </div>
       <div>
-        <%= label_tag :password, 'Password:' %>
-        <%= password_field_tag :password, params[:password] %>
+        <%= f.label :password%>
+        <%= f.password_field :password %>
       </div>
       <div>
-        <%= submit_tag "Login" %>
+        <%= f.submit "Login" %>
       </div>
     </fieldset>
   <% end %>

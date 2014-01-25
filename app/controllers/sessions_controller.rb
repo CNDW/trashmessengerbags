@@ -1,20 +1,23 @@
 class SessionsController < ApplicationController
+  include SessionsHelper
   skip_before_filter :authorize
+  
   def new
   end
 
   def create
-    user = User.find_by_name(params[:name])
-    if user and user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to admin_url
+    admin = Admin.find_by_name(params[:session][:name])
+    if admin and admin.authenticate(params[:session][:password])
+      sign_in admin
+      redirect_to custom_items_url, notice: "Logged in"
     else
-      redirect_to login_url, alert: "Invalid user/password combination"
+      flash[:error] = 'Invalid admin/password comination'
+      render 'new'
     end  
   end
 
   def destroy
-    session[:user_id] = nil
-    redirect_to store_url, notice: "Logged out"
+    sign_out
+    redirect_to custom_items_url, notice: "Logged out"
   end
 end
