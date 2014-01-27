@@ -13,6 +13,8 @@ class CustomItemsController < ApplicationController
 
   # GET /custom_items/new
   def new
+    gon.types = CustomItem.type_listing
+    gon.models = CustomItem.model_listing
     @custom_item = CustomItem.new
   end
 

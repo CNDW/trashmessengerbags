@@ -1,14 +1,15 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
-types = new Array()
-<% ProductType.all.each do |type| %>
-types.push [<%= type.id %>, <%= type.product_category_id %>]
-<% end %>
-models = new Array()
-<% ProductModel.all.each do |model| %>
-models.push [<%= model.id %>, <%= model.product_type_id %>, <%= model.product_option_ids %>]
-<% end %>
+#types = new Array()
+#<% ProductType.all.each do |type| %>
+#types.push [<%= type.id %>, <%= type.product_category_id %>]
+#<% end %>
+#models = new Array()
+#<% ProductModel.all.each do |model| %>
+#models.push [<%= model.id %>, <%= model.product_type_id %>, <%= model.product_option_ids %>]
+#<% end %>
+
 
 categoryRadio = ".custom_product .category input[type=radio]"
 typeRadio = ".custom_product .type input[type=radio]"
@@ -33,11 +34,11 @@ radioButtonChange = (button, parentButton, itemArray)->
    
 $ ->
     $(document).on "click", categoryRadio, ->
-        radioButtonChange(typeRadio, categoryRadio, types)
+        radioButtonChange(typeRadio, categoryRadio, gon.types)
 
 $ ->
     $(document).on "click", typeRadio, ->
-        radioButtonChange(modelRadio, typeRadio, models)
+        radioButtonChange(modelRadio, typeRadio, gon.models)
 
 $ ->
     $(document).on "click", modelRadio, ->
@@ -45,7 +46,7 @@ $ ->
         $(".custom_product .submit").show()
         value = Number($(modelRadio + ":checked").val())
         options = new Array()
-        models.forEach (model)->
+        gon.models.forEach (model)->
             options = model[2] if model[0] is value
         $(".custom_product .options input[type=checkbox]").each ->
             $(this).prop('checked', false)
