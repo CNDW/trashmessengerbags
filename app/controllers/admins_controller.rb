@@ -1,6 +1,4 @@
-class AdminsController < ApplicationController
-  include SessionsHelper
-  before_action :signed_in_admin
+class AdminsController < SecureController
   before_action :set_admin, only: [:show, :edit, :update, :destroy]
   
   def index

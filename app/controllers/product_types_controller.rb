@@ -1,5 +1,4 @@
-class ProductTypesController < AdminsController
-  before_action :signed_in_admin
+class ProductTypesController < SecureController
   before_action :set_product_type, only: [:show, :edit, :update, :destroy]
 
   # GET /product_types
