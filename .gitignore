@@ -24,3 +24,6 @@ doc/
 .DS_Store
 .idea
 .secret
+
+# Ignore secret tokens
+/config/initializers/secret_token.rb
