@@ -25,4 +25,8 @@ module SessionsHelper
     cookies.delete(:remember_token)
     self.current_admin = nil
   end
+
+  def signed_in_admin
+      redirect_to adminsignin_url, notice: "Please sign in." unless signed_in?
+  end
 end

@@ -1,4 +1,5 @@
-class ProductCategoriesController < ApplicationController
+class ProductCategoriesController < AdminsController
+  before_action :signed_in_admin
   before_action :set_product_category, only: [:show, :edit, :update, :destroy]
 
   # GET /product_categories

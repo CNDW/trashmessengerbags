@@ -1,5 +1,6 @@
 class CustomItemsController < ApplicationController
   before_action :set_custom_item, only: [:show, :edit, :update, :destroy]
+  
   # GET /custom_items
   # GET /custom_items.json
   def index

@@ -13,9 +13,9 @@
       <li><%= link_to 'Product Types', product_types_path %></li>
       <li><%= link_to 'Product Models', product_models_path %></li>
       <li><%= link_to 'Product Options', product_options_path %></li>
-      <li><%= link_to 'Sign out', signout_path, method: 'delete' %></li>
+      <li><%= link_to 'Sign out', adminsignout_path, method: 'delete' %></li>
     <% else %>
-      <li><%= link_to 'Sign in', signin_path %></li>
+      <li><%= link_to 'Sign in', adminsignin_path %></li>
     <% end %>
   </ul>
 </head>

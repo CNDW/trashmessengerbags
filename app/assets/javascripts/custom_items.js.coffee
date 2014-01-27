@@ -1,21 +1,12 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
-#types = new Array()
-#<% ProductType.all.each do |type| %>
-#types.push [<%= type.id %>, <%= type.product_category_id %>]
-#<% end %>
-#models = new Array()
-#<% ProductModel.all.each do |model| %>
-#models.push [<%= model.id %>, <%= model.product_type_id %>, <%= model.product_option_ids %>]
-#<% end %>
-
 
 categoryRadio = ".custom_product .category input[type=radio]"
 typeRadio = ".custom_product .type input[type=radio]"
 modelRadio = ".custom_product .model input[type=radio]"
 
-#button = button to change, parentButton = selected button, itemArray = options for button
+# button = button to change, parentButton = selected button, itemArray = options for button
 radioButtonChange = (button, parentButton, itemArray)->
     $(".custom_product .model").hide()
     $(".custom_product .submit").hide()

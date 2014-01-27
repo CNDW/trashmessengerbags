@@ -20,4 +20,8 @@ class SessionsController < ApplicationController
     sign_out
     redirect_to custom_items_url, notice: "Logged out"
   end
+  
+  private 
+    
+
 end

@@ -1,4 +1,5 @@
-class ProductModelsController < ApplicationController
+class ProductModelsController < AdminsController
+  before_action :signed_in_admin
   before_action :set_product_model, only: [:show, :edit, :update, :destroy]
 
   # GET /product_models
