@@ -49,13 +49,13 @@ gem 'gon'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 group :development, :test do
+  gem 'rspec-rails'
   gem 'guard-rspec'
   gem 'guard-livereload'
   gem 'childprocess'
 end
 
 group :test do
-  gem 'rspec-rails'
   gem 'selenium-webdriver', '~> 2.35.1'
   gem 'capybara', '2.1.0'
   gem 'cucumber', '1.2.5'

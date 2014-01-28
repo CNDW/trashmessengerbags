@@ -1,4 +1,12 @@
 Trashmessengerbags::Application.routes.draw do
+  match '/home', to: 'home_pages#home', via: 'get'
+  get "home_pages/store"
+  get "home_pages/custom"
+  get "home_pages/gallery"
+  match '/blog', to: 'home_pages#blog', via: 'get'
+  get "home_pages/locations"
+  get "home_pages/about"
+  get "home_pages/contact"
   resources :product_options
 
   resources :custom_items 
