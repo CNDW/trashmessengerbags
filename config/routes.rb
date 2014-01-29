@@ -5,7 +5,7 @@ Trashmessengerbags::Application.routes.draw do
   get "home_pages/gallery"
   match '/blog', to: 'home_pages#blog', via: 'get'
   get "home_pages/locations"
-  get "home_pages/about"
+  match '/about', to: 'home_pages#about', via: 'get'
   get "home_pages/contact"
   resources :product_options
 

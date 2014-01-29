@@ -19,6 +19,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+gem 'carrierwave'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -40,7 +41,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # Use unicorn as the app server
 gem 'unicorn'
 
-# Use to pass controller variables to javascript
+# Use gon to pass controller variables to javascript
 gem 'gon'
 
 # Use Capistrano for deployment
@@ -50,9 +51,13 @@ gem 'gon'
 # gem 'debugger', group: [:development, :test]
 group :development, :test do
   gem 'rspec-rails'
+  gem 'spork-rails'
+  gem 'guard'
+  gem 'guard-spork'
   gem 'guard-rspec'
   gem 'guard-livereload'
   gem 'childprocess'
+  gem 'factory_girl_rails'
 end
 
 group :test do
@@ -61,6 +66,7 @@ group :test do
   gem 'cucumber', '1.2.5'
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
+  gem 'faker'
 end
 
 group :production do

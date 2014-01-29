@@ -23,4 +23,16 @@ describe "HomePages" do
   		expect(page).to have_title('Blog')
   	end
   end
+
+  describe "GET /about" do
+  	it "should have the content 'About'" do
+  		visit '/about'
+  		expect(page).to have_content('About')
+  	end
+  	it "should have the title 'About'" do
+  		visit '/about'
+  		expect(page).to have_title('About')
+  	end
+  end
+
 end
