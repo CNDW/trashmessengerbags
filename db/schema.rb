@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140125155329) do
+ActiveRecord::Schema.define(version: 20140129094416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,17 @@ ActiveRecord::Schema.define(version: 20140125155329) do
   create_table "custom_items_product_options", id: false, force: true do |t|
     t.integer "custom_item_id"
     t.integer "product_option_id"
+  end
+
+  create_table "images", force: true do |t|
+    t.string   "title"
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
+    t.string   "desc"
+    t.string   "image_data"
+    t.integer  "gallery_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "product_categories", force: true do |t|

@@ -24,6 +24,8 @@ Trashmessengerbags::Application.routes.draw do
   match '/adminsignout', to: 'sessions#destroy', via: 'delete'
   
   resources :users
+
+  match '/products', to: 'products#index', via: 'get'
   
   root 'custom_items#index'
 
