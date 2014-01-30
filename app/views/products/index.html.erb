@@ -1,6 +1,37 @@
 <h1>Trash Messenger Bags Products</h1>
 
+<h2>Products</h2>
+<table>
+	<thead>
+    <tr>
+      <th>Model</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>Category</th>
+      <th>Type</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @prods.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.price %></td>
+        <td><%= product.description %></td>
+        <td><%= product.category %></td>
+        <td><%= product.prod_type %></td>
+        <td><%= link_to 'Show', product %></td>
+        <td><%= link_to 'Edit', edit_product_path(product) %></td>
+        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'New Product', new_product_path %>
 <%= render 'categories' %>
-<%= render 'models' %>
 <%= render 'types' %>
+<%= render 'models' %>
 <%= render 'options' %>

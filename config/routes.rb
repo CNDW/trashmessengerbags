@@ -25,7 +25,7 @@ Trashmessengerbags::Application.routes.draw do
   
   resources :users
 
-  match '/products', to: 'products#index', via: 'get'
+  resources :products
   
   root 'custom_items#index'
 
