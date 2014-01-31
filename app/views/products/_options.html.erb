@@ -12,14 +12,9 @@
   </thead>
 
   <tbody>
-    <% @products[:options].each do |option| %>
+    <% @products.each do |option| %>
       <tr>
         <td><%= option.name %></td>
-        <td>
-          <% option.product_models.each do |model| %>
-            <%= model.name %>
-          <% end %>
-        </td>
         <td><%= link_to 'Show', option %></td>
         <td><%= link_to 'Edit', edit_product_option_path(option) %></td>
         <td><%= link_to 'Destroy', option, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -13,12 +13,11 @@
   </thead>
 
   <tbody>
-    <% @products[:categories].each do |category| %>
+    <% @products.each do |category| %>
       <tr>
         <td><%= category.name %></td>
         <td><%= category.price %></td>
         <td><%= category.desc %></td>
-        <td><%= category.category_types %></td>
         <td><%= link_to 'Show', category %></td>
         <td><%= link_to 'Edit', edit_product_category_path(category) %></td>
         <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>

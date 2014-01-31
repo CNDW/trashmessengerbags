@@ -4,9 +4,7 @@ class ProductsController < SecureController
 
 	#GET /products
 	def index
-		@prods = Product.all
-		@products = { categories: ProductCategory.all, types: ProductType.all, 
-			models: ProductModel.all, options: ProductOption.all }
+		@products = Product.all
 	end
 
   #GET
