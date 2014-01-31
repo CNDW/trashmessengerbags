@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140130100434) do
+ActiveRecord::Schema.define(version: 20140131074238) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,29 +66,18 @@ ActiveRecord::Schema.define(version: 20140130100434) do
     t.string   "desc"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "product_models", force: true do |t|
-    t.string   "name"
-    t.decimal  "price",           precision: 8, scale: 2
-    t.string   "desc"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "product_type_id"
-  end
-
-  create_table "product_models_options", id: false, force: true do |t|
-    t.integer "product_model_id"
-    t.integer "product_option_id"
+    t.string   "category"
   end
 
   create_table "product_options", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "desc"
+    t.decimal  "price",      precision: 8, scale: 2
   end
 
-  create_table "product_types", force: true do |t|
+  create_table "products", force: true do |t|
     t.string   "name"
     t.decimal  "price",               precision: 8, scale: 2
     t.string   "desc"
@@ -97,19 +86,7 @@ ActiveRecord::Schema.define(version: 20140130100434) do
     t.integer  "product_category_id"
   end
 
-  create_table "products", force: true do |t|
-    t.string   "name"
-    t.decimal  "price",       precision: 8, scale: 2
-    t.string   "category"
-    t.string   "prod_type"
-    t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "products", ["category"], name: "index_products_on_category", using: :btree
   add_index "products", ["name"], name: "index_products_on_name", unique: true, using: :btree
-  add_index "products", ["prod_type"], name: "index_products_on_prod_type", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"

@@ -16,7 +16,7 @@
       <tr>
         <td><%= product_option.name %></td>
         <td>
-          <% product_option.product_models.each do |model| %>
+          <% product_option.each do |model| %>
             <%= model.name %>
           <% end %>
         </td>
