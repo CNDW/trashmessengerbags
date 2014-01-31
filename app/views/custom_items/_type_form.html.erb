@@ -1,4 +1,4 @@
 <div class="type" >
-  Select a product type.<br>
-  <%= collection_radio_buttons(:custom_item, :product_type_id, ProductType.all, :id, :name) %>
+  Select a product.<br>
+  <%= collection_radio_buttons(:custom_item, :product_id, Product.all, :id, :name) %>
 </div>
