@@ -6,8 +6,8 @@
       <th>Name</th>
       <th>id</th>
       <th>category</th>
-      <th>type</th>
-      <th>model</th>
+      <th>sub category</th>
+      <th>product</th>
       <th>options</th>
       <th></th>
       <th></th>
@@ -19,9 +19,9 @@
       <tr>
         <td><%= custom_item.name %></td>
         <td><%= custom_item.id %></td>
+        <td><%= custom_item.category%></td>
         <td><%= custom_item.product_category.name %></td>
-        <td><%= custom_item.product_type.name %></td>
-        <td><%= custom_item.product_model.name %></td>
+        <td><%= custom_item.product.name %></td>
         <td>
           <% custom_item.product_options.each do |option| %>
             <%= option.name %>
