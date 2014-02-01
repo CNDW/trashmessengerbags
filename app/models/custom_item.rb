@@ -5,12 +5,12 @@ class CustomItem < ActiveRecord::Base
   validates :product_category_id, presence: true
   validates :product_id, presence: true
 
-  def self.type_listing
-  	# depricated ProductType.all.map { |type| [type[:id], type[:product_category_id]] }
+  def self.category_listing
+  	ProductCategory.all.map { |cat| [cat.id, cat.category] }
   end
 
-  def self.model_listing
-  	# depricated ProductModel.all.map { |model| [model[:id], model[:product_type_id], model.product_option_ids] }
+  def self.product_listing
+  	Product.all.map { |product| [product.id, product.product_category_id, product.product_option_ids] }
   end
   
 end

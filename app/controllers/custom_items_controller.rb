@@ -14,8 +14,8 @@ class CustomItemsController < ApplicationController
 
   # GET /custom_items/new
   def new
-    gon.types = CustomItem.type_listing
-    gon.models = CustomItem.model_listing
+    gon.categories = CustomItem.category_listing
+    gon.products = CustomItem.product_listing
     @custom_item = CustomItem.new
   end
 
@@ -75,6 +75,6 @@ class CustomItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def custom_item_params
-      params.require(:custom_item).permit(:product_category_id, :product_type_id, :product_model_id, :product_option_ids => [])
+      params.require(:custom_item).permit(:product_category_id, :product_id, :product_option_ids => [], :category)
     end
 end
