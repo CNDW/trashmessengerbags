@@ -12,5 +12,9 @@ class ProductCategory < ActiveRecord::Base
   def self.categories
     ProductCategory.all.map { |product| product.category }.uniq
   end
+
+  def product_list
+    self.products.map { |product| product.name }
+  end
   
 end
