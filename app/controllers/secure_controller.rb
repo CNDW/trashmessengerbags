@@ -3,7 +3,7 @@ class SecureController < ApplicationController
   before_action :signed_in_admin
 
 	private
-	def sign_in(admin)
+    def sign_in(admin)
     	remember_token = Admin.new_remember_token
     	cookies.permanent[:remember_token] = remember_token
 	    admin.update_attribute(:remember_token, Admin.encrypt(remember_token))
@@ -32,4 +32,5 @@ class SecureController < ApplicationController
   	def signed_in_admin
       redirect_to adminsignin_url, notice: "Please sign in." unless signed_in?
   	end
+
 end

@@ -7,6 +7,7 @@ class Admin < ActiveRecord::Base
   
   before_save { email.downcase! }
   before_create :create_remember_token
+  after_destroy :ensure_an_admin_remains
   
   def Admin.new_remember_token
     SecureRandom.urlsafe_base64
@@ -20,6 +21,12 @@ class Admin < ActiveRecord::Base
   
     def create_remember_token
       self.remember_token = Admin.encrypt(Admin.new_remember_token)
+    end
+
+    def ensure_an_admin_remains
+      if Admin.count.zero?
+        raise "Can't delete last admin"
+      end
     end
   
 end

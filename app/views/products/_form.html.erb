@@ -24,8 +24,8 @@
     <%= f.text_field :desc %>
   </div>
   <div class="field">
-    <%= f.collection_select( :product_category_id, ProductCategory.all, :id, :name { include_blank: 'Category' } ) %>
-    <button type="button" class="add_category">Add new category</button>
+    <%= f.collection_select( :product_category_id, ProductCategory.all, :id, :name, { include_blank: 'Category' } ) %>
+    <%= link_to "New Product Category", new_product_category_path %>
   </div>
   <div class="actions">
     <%= f.submit %>

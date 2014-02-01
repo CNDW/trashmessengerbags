@@ -22,6 +22,5 @@ class SessionsController < ApplicationController
   end
   
   private 
-    
 
 end
