@@ -1,5 +1,6 @@
 require 'spec_helper'
 
 describe Product do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "has a valid factory"
+  it "has a product category"
 end
