@@ -20,7 +20,7 @@
     <%= f.text_field :desc %>
   </div>
   <div class="field">
-    <%= f.select(:category, ProductCategory.categories, { include_blank: 'Category' }) %>
+    <%= f.select(:category, ProductCategory.categories, { include_blank: '' }) %>
     <button class="add_category" type="button">Add a new category</button>
   </div>
   <div class="actions">

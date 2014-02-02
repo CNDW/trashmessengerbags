@@ -10,8 +10,8 @@ class Product < ActiveRecord::Base
   	cats.delete_if { |cat| cat.empty? }
   end
 
-  def self.prod_types
-  	prod_types = Product.all.map { |product| product.prod_type }.uniq
-  	prod_types.delete_if { |type| type.empty? }
+  def option_list
+    self.product_options.map { |option| option.name }
   end
+
 end

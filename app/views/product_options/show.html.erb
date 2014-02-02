@@ -4,6 +4,9 @@
   <strong>Name:</strong>
   <%= @product_option.name %>
 </p>
+<p>
+	<%= @product_option.product_list %>
+</p>
 
 <%= link_to 'Edit', edit_product_option_path(@product_option) %> |
 <%= link_to 'Back', product_options_path %>

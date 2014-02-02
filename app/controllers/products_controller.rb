@@ -22,6 +22,9 @@ class ProductsController < SecureController
 
 	#PATCH/PUT
 	def update
+    @product.product_options.clear
+    @product.product_option_ids=params[:product][:product_option_ids]
+
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product category was successfully updated.' }
