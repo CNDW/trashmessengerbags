@@ -1,4 +1,4 @@
-class ImagesController < ApplicationController
+class ImagesController < SecureController
   def index
   	@images = Image.all
   end

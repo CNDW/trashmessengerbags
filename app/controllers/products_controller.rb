@@ -10,6 +10,7 @@ class ProductsController < SecureController
   #GET
 	def new
 		@product = Product.new
+    @images = @product.images.build(params[:images])
 	end
 
   #GET
@@ -18,12 +19,14 @@ class ProductsController < SecureController
 
   #GET	
 	def edit
+    @product.images.build
 	end
 
 	#PATCH/PUT
 	def update
     @product.product_options.clear
     @product.product_option_ids=params[:product][:product_option_ids]
+    @product.images.create(params[:image])
 
     respond_to do |format|
       if @product.update(product_params)
@@ -39,6 +42,7 @@ class ProductsController < SecureController
 	#POST
 	def create
 		@product = Product.new(product_params)
+    @product.images.build(params[:image])
 
     respond_to do |format|
       if @product.save
@@ -66,6 +70,6 @@ class ProductsController < SecureController
 		end
 
 		def product_params
-      params.require(:product).permit(:name, :price, :desc, :product_category_id, :product_option_ids => [])
+      params.require(:product).permit(:name, :price, :desc, :product_category_id, images_attributes: [:title, :image_data], :product_option_ids => [])
     end
 end

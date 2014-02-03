@@ -11,9 +11,9 @@
 <div class="new_image">
 	<%= form_for @image, html: { multipart: true } do |f| %>
 		<%= f.label :title %>
-		<%= f.text_field :title %>
+		<%= f.text_field :title %><br>
 		<%= f.label :image_data %>
-		<%= f.file_field :image_data %>
+		<%= f.file_field :image_data %><br>
 		<%= f.submit "Save", class: "btm btm-primary" %>
 	<% end %>
 </div>

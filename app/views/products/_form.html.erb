@@ -31,6 +31,16 @@
     Options available for this product<br>
     <%= f.collection_check_boxes(:product_option_ids, ProductOption.all, :id, :name, options = {"checked" => :product_option_ids}) %>
   </div>
+  <div>
+    Images for this product<br>
+    <%= f.fields_for :images, html: { multipart: true } do |image| %>
+    
+      <%= image.label :title %>
+      <%= image.text_field :title %><br>
+      <%= image.label :image_data %>
+      <%= image.file_field :image_data %><br>
+    <% end %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
