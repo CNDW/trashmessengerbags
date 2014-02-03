@@ -10,6 +10,7 @@
     <li><%= link_to 'Custom items', custom_items_path %></li>
     <% if signed_in? %>
       <li><%= link_to 'Products', products_path %></li>
+      <li><%= link_to 'Images', images_path %></li>
       <li><%= link_to 'Sign out', adminsignout_path, method: 'delete' %></li>
     <% else %>
       <li><%= link_to 'Sign in', adminsignin_path %></li>

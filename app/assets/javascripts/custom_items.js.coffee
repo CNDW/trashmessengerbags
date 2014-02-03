@@ -2,9 +2,9 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-categoryRadio = ".custom_product .category input[type=radio]"
-typeRadio = ".custom_product .type input[type=radio]"
-modelRadio = ".custom_product .model input[type=radio]"
+categoryRadio = ".custom_product .category input[type=radio]" #ProductCategory.category radio button, Main category selection
+typeRadio = ".custom_product .type input[type=radio]" #ProductCategory.category_id radio button, Sub category selection
+modelRadio = ".custom_product .model input[type=radio]" #Product.product_id radio button, Product selection
 
 # button = button to change, parentButton = selected button, itemArray = options for button
 radioButtonChange = (button, parentButton, itemArray)->
@@ -14,8 +14,7 @@ radioButtonChange = (button, parentButton, itemArray)->
     $($(button).parent()).hide() 
     $(button + ":checked").attr('checked', false)
     value = $(parentButton + ":checked").val()
-    console.log(value)
-    value = Number(value) unless parentButton is categoryRadio   #incompatable with gon.categories [0] = str, [1] = int
+    value = Number(value) unless parentButton is categoryRadio 
     itemArray.forEach (item)->
         if (item[1] == value)
             $(button + "[value=" + item[0] + "]").show()

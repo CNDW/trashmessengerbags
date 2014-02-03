@@ -103,6 +103,7 @@ GEM
     hike (1.2.3)
     http_parser.rb (0.5.3)
     i18n (0.6.9)
+    image_sorcery (1.1.0)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
@@ -253,6 +254,7 @@ DEPENDENCIES
   guard-livereload
   guard-rspec
   guard-spork
+  image_sorcery
   jbuilder (~> 1.2)
   jquery-rails
   jquery-turbolinks
