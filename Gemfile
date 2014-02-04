@@ -59,6 +59,7 @@ group :development, :test do
   gem 'guard-livereload'
   gem 'childprocess'
   gem 'factory_girl_rails'
+  gem 'forgery'
 end
 
 group :test do
@@ -67,7 +68,6 @@ group :test do
   gem 'cucumber', '1.2.5'
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
-  gem 'faker'
 end
 
 group :production do

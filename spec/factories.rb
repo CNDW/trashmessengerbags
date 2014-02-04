@@ -1,11 +1,10 @@
-require 'faker'
+require 'forgery'
 
 FactoryGirl.define do
 	factory :product_category, class: ProductCategory do
-		name Faker::Commerce.product_name
-		price Faker::Number.number(3)
-		desc Faker::Lorem.sentence
-		id Faker::Number.number(2)
+		name "name"
+		price 5
+		desc "a desc"
 	end
 	
 end

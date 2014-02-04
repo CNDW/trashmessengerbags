@@ -5,18 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-require 'faker'
+require 'forgery'
 Admin.create!(name: 'admin', password: 'password', password_confirmation: 'password', email: 'admin@trashbags.com')
 
 categorization = ['Bags', 'Apparel', 'Utility']
-16.times do 
-	ProductCategory.create(name: Faker::Commerce.department, desc: Faker::Lorem.sentence, category: categorization.sample)
+12.times do 
+	ProductCategory.create!(name: Forgery(:trash).category, desc: Forgery(:trash).sentence, category: categorization.sample)
 end
 
 30.times do
-	Product.create(name: Faker::Commerce.product_name, desc: Faker::Lorem.sentence, price: Random.rand(100), product_category: ProductCategory.all.sample)
+	Product.create!(name: Forgery(:trash).product, desc: Forgery(:trash).sentence, price: Random.rand(100), product_category: ProductCategory.all.sample)
 end
 
 15.times do
-	ProductOption.create(name: Faker::Commerce.color, desc: Faker::Lorem.sentence, price: Random.rand(50), products: Product.all.sample(6))
+	ProductOption.create!(name: Forgery(:basic).color, desc: Forgery(:trash).sentence, price: Random.rand(50), products: Product.all.sample(6))
 end
