@@ -10,7 +10,6 @@ class ProductsController < SecureController
   #GET
 	def new
 		@product = Product.new
-    @images = @product.images.build(params[:images])
 	end
 
   #GET
@@ -19,14 +18,12 @@ class ProductsController < SecureController
 
   #GET	
 	def edit
-    @product.images.build
 	end
 
 	#PATCH/PUT
 	def update
     @product.product_options.clear
     @product.product_option_ids=params[:product][:product_option_ids]
-    @product.images.create(params[:image])
 
     respond_to do |format|
       if @product.update(product_params)
@@ -42,7 +39,6 @@ class ProductsController < SecureController
 	#POST
 	def create
 		@product = Product.new(product_params)
-    @product.images.build(params[:image])
 
     respond_to do |format|
       if @product.save
