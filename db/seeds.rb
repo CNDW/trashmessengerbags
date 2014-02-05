@@ -10,13 +10,13 @@ Admin.create!(name: 'admin', password: 'password', password_confirmation: 'passw
 
 categorization = ['Bags', 'Apparel', 'Utility']
 12.times do 
-	ProductCategory.create!(name: Forgery(:trash).category, desc: Forgery(:trash).sentence, category: categorization.sample)
+	ProductCategory.create(name: Forgery(:trash).category, desc: Forgery(:trash).sentence, category: categorization.sample)
 end
 
 30.times do
-	Product.create!(name: Forgery(:trash).product, desc: Forgery(:trash).sentence, price: Random.rand(100), product_category: ProductCategory.all.sample)
+	Product.create(name: Forgery(:trash).product, desc: Forgery(:trash).sentence, price: Random.rand(100), product_category: ProductCategory.all.sample)
 end
 
 15.times do
-	ProductOption.create!(name: Forgery(:basic).color, desc: Forgery(:trash).sentence, price: Random.rand(50), products: Product.all.sample(6))
+	ProductOption.create(name: Forgery(:basic).color, desc: Forgery(:trash).sentence, price: Random.rand(50), products: Product.all.sample(6))
 end

@@ -5,8 +5,7 @@ class Product < ActiveRecord::Base
   belongs_to :product_category, autosave: true
   validates :name, presence: true, uniqueness: true
 
-  accepts_nested_attributes_for :images, reject_if:lambda { |attrs|
-    attrs.all? { |key, value| value.blank? } }, allow_destroy: true
+  accepts_nested_attributes_for :images, reject_if:lambda { |attrs| attrs[:image_data].blank? }, allow_destroy: true
 
   def self.categories
   	cats = Product.all.map { |product| product.category }.uniq
@@ -15,11 +14,6 @@ class Product < ActiveRecord::Base
 
   def option_list
     self.product_options.map { |option| option.name }
-  end
-
-  def with_no_image
-    images.build
-    self
   end
 
 end
