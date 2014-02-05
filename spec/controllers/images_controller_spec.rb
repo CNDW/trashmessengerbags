@@ -2,32 +2,12 @@ require 'spec_helper'
 
 describe ImagesController do
 
-  describe "GET 'index'" do
-    it "returns http success" do
-      get 'index'
-      response.should be_success
-    end
-  end
+  describe "GET 'index'"
 
-  describe "GET 'new'" do
-    it "returns http success" do
-      get 'new'
-      response.should be_success
-    end
-  end
+  describe "GET 'new'" 
 
-  describe "GET 'create'" do
-    it "returns http success" do
-      get 'create'
-      response.should be_success
-    end
-  end
+  describe "GET 'create'" 
 
-  describe "GET 'destroy'" do
-    it "returns http success" do
-      get 'destroy'
-      response.should be_success
-    end
-  end
+  describe "GET 'destroy'" 
 
 end
