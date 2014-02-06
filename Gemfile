@@ -10,6 +10,7 @@ gem 'postgres_ext'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
+gem 'bootstrap-sass'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -50,6 +51,10 @@ gem 'gon'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+group :development do
+  gem 'rails_layout'
+end
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'spork-rails'
