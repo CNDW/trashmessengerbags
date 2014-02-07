@@ -1,12 +1,11 @@
-<div class="row clearfix">
-  <div class="col-md-10 column">
-    <div class="btn-group btn-group-vertical">
-       <button class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-left"></em> Left</button> <button class="btn btn-default" type=""><em class="glyphicon glyphicon-align-center"></em> Center</button> <button class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-right"></em> Right</button> <button class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-justify"></em> Justify</button>
-    </div>
-  </div>
-  <div class="col-md-2 column">
-    <div class="btn-group btn-group-vertical">
-       <button class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-left"></em> Left</button> <button class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-center"></em> Center</button> <button class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-right"></em> Right</button> <button class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-justify"></em> Justify</button>
-    </div>
-  </div>
+<div class="btn-group-vertical btn-group-footer">
+  <%= link_to locations_path, class: "btn btn-link btn-footer" do %>
+    <i class="glyphicon glyphicon-globe"> Locations</i>
+  <% end %>
+  <%= link_to about_path, class: "btn btn-link btn-footer" do %>
+    <i class="glyphicon glyphicon-info-sign"> About</i>
+  <% end %>
+  <%= link_to contact_path, class: "btn btn-link btn-footer" do %>
+    <i class="glyphicon glyphicon-send"> Contact</i>
+  <% end %>
 </div>

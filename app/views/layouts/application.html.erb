@@ -14,23 +14,29 @@
     <![endif]-->
     <%= csrf_meta_tags %>
   </head>
-  <body>
-    <header class="container-fluid">
-      <div class="row">
-        <div class="col-md-12 column">
-          <h1 class="text-center">
-            <%= image_tag "trashlogo-header.jpg", alt: "Trash Messenger Bags", class: "header_logo" %>
-          </h1>
-        </div>
+  <% if signed_in? %>
+    <%= render 'layouts/admin/admin' %>
+  <% else %>
+    <body>
+      <div id="wrap">
+        <header class="container-fluid">
+          <div class="row">
+            <div class="col-md-12 column">
+              <h1 class="text-center">
+                <%= image_tag "trashlogo-header.jpg", alt: "Trash Messenger Bags", class: "header_logo" %>
+              </h1>
+            </div>
+          </div>
+          <%= render 'layouts/navigation' %>
+        </header>
+        <main class="container-fluid" role="main">
+          <%= render 'layouts/messages' %>
+          <%= yield %>
+        </main>
       </div>
-      <%= render 'layouts/navigation' %>
-    </header>
-    <main class='<%= controller.controller_name %>' role="main">
-       <%= render 'layouts/messages' %>
-       <%= yield %>
-    </main>
-    <footer>
-      <%= render 'layouts/footer' %>
-    </footer>
-  </body>
+      <div id='footer' class="container-fluid">
+        <%= render 'layouts/footer' %>
+      </div>
+    </body>
+  <% end %>
 </html>
