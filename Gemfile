@@ -45,6 +45,7 @@ gem 'unicorn'
 
 # Use gon to pass controller variables to javascript
 gem 'gon'
+gem 'forgery'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
@@ -64,7 +65,6 @@ group :development, :test do
   gem 'guard-livereload'
   gem 'childprocess'
   gem 'factory_girl_rails'
-  gem 'forgery'
 end
 
 group :test do

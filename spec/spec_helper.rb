@@ -50,6 +50,11 @@ Spork.prefork do
     config.order = "random"
     config.include Capybara::DSL
     config.include FactoryGirl::Syntax::Methods
+    config.after(:each) do
+      if Rails.env.test? || Rails.env.cucumber?
+        FileUtils.rm_rf(Dir["#{Rails.root}/spec/support/uploads"])
+      end
+    end
   end
 end
 

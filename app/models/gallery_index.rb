@@ -1,6 +1,5 @@
 class GalleryIndex < ActiveRecord::Base
-	belongs_to :gallery
-	belongs_to :image
-	belongs_to :gallery_indexable, polymorphic: true
-
+	belongs_to :gallery, autosave: true
+	belongs_to :image, autosave: true
+	belongs_to :gallery_indexable, polymorphic: true, autosave: true
 end
