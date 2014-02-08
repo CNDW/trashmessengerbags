@@ -1,8 +1,7 @@
 class Image < ActiveRecord::Base
-	belongs_to :imageable, polymorphic: true
-	belongs_to :gallery
-
-	validates :title, presence: true
+	has_many :gallery_indices, dependent: :destroy
+	has_many :galleries, through: :gallery_indices
+	#has_many :products, through: :gallery_indices, source: :gallery_indexable, source_type: "Product"
 
 	mount_uploader :image_data, ImageUploader
 end

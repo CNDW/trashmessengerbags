@@ -66,7 +66,7 @@ class ProductsController < SecureController
 		end
 
 		def product_params
-      params.require(:product).permit(:name, :price, :desc, :product_category_id, images_attributes: [:title, :image_data, :_destroy, :id], :product_option_ids => [])
+      params.require(:product).permit(:name, :price, :desc, :product_category_id, images_attributes: [:title, :image_data, :_destroy, :id], product_option_ids: [])
     end
 
 end
