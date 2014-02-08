@@ -1,6 +1,7 @@
 class ImagesController < SecureController
   def index
   	@images = Image.all
+    @galleries = Gallery.all
   end
 
   def new

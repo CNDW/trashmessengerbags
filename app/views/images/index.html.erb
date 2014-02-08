@@ -27,3 +27,25 @@
 		<% end %>
 	</tbody>
 </table>
+<table class="table table-bordered table-striped">
+	<thread>
+		<tr>
+			<th>gallery name</th>
+			<th>gallery title</th>
+			<th>gallery list</th>
+		</tr>
+	</thread>
+	<tbody>
+		<% @galleries.each do |gallery| %>
+			<tr>
+				<td><%= gallery.name %></td>
+				<td><%= gallery.title %></td>
+				<td>
+					<% gallery.images.each do |image| %>
+						<%= image_tag image.image_data_url(:thumb).to_s %>
+					<% end %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
