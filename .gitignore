@@ -16,6 +16,7 @@
 /tmp
 /public/uploads
 /assets/images
+/spec/support
 
 # Ignore unneeded files
 database.yml
@@ -26,6 +27,8 @@ doc/
 .DS_Store
 .idea
 .secret
+.jpg
+
 
 # Ignore secret tokens
 /config/initializers/secret_token.rb
