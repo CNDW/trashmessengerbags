@@ -9,11 +9,6 @@ class Product < ActiveRecord::Base
 
   accepts_nested_attributes_for :images, reject_if: :all_blank, allow_destroy: true
 
-  def self.categories
-  	cats = Product.all.map { |product| product.category }.uniq
-  	cats.delete_if { |cat| cat.empty? }
-  end
-
   def option_list
     self.product_options.map { |option| option.name }
   end
