@@ -3,12 +3,6 @@ class HomePagesController < ApplicationController
     @carousel = Gallery.first
   end
 
-  def store
-  end
-
-  def custom
-  end
-
   def gallery
   end
 

@@ -18,6 +18,16 @@ img {
   *zoom:1;
   vertical-align: top;
 }
+.navbar-main {
+  margin-bottom: 0px;
+}
+
+.store-navbar {
+  @extend .navbar;
+  @extend .navbar-inverse;
+  padding: 0;
+
+}
 
 .sidebar {
   position: fixed;
@@ -36,9 +46,6 @@ img {
   margin-left: -20px;
   margin-right: -21px;
   margin-bottom: 20px;
-}
-.main {
-  padding-top: 20px;
 }
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
@@ -75,12 +82,11 @@ img {
   padding: 0;
 }
 main {
-  @extend .container;
+  @extend .container-fluid;
   background-color: #fff;
-  padding-top: 20px;
-  padding-bottom: 80px;
+  padding:0 0 80px 0;
   width: 100%;
-  margin-top: -20px; // accommodate the navbar
+  margin-top: 0px;
   }
 HTML {
   height: 100%;
