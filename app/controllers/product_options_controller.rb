@@ -40,8 +40,7 @@ class ProductOptionsController < SecureController
   # PATCH/PUT /product_options/1
   # PATCH/PUT /product_options/1.json
   def update
-    @product_option.products.clear
-    @product_option.product_ids=params[:product_option][:product_ids]
+    @product_option.attributes = {'product_ids' => []}.merge(params[:product_option] || {})
     
     respond_to do |format|
       if @product_option.update(product_option_params)

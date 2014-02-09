@@ -27,7 +27,7 @@ doc/
 .DS_Store
 .idea
 .secret
-.jpg
+*.jpg
 
 
 # Ignore secret tokens

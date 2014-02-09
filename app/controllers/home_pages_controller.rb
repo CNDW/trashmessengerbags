@@ -1,5 +1,6 @@
 class HomePagesController < ApplicationController
   def home
+    @carousel = Gallery.first
   end
 
   def store

@@ -1,5 +1,27 @@
 <% provide(:title, 'Home') %>
-<h1>Photo Slideshow</h1>
-<p>
-	This is the homepage for TrashMessenger bags. It will house a slideshow of recently made products to showcase.
-</p>
+<div id="carousel-home-page" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+  	<% @carousel.images.each_with_index do |image, index| %>
+    	<li data-target="#carousel-home-page" data-slide-to="<%= index %>" <% if index == 0 %>class="active" <% end %>></li>
+    <% end %>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+  	<% @carousel.images.each_with_index do |image, index| %>
+	    <div class="item<% if index == 0 %> active<% end %>">
+	      <img src="<%= image.image_data_url %>" alt="loading <%= index %>">
+	    </div>
+	  <% end %>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-home-page" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-home-page" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
+

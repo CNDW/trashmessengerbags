@@ -22,8 +22,7 @@ class ProductsController < SecureController
 
 	#PATCH/PUT
 	def update
-    @product.product_options.clear
-    @product.product_option_ids=params[:product][:product_option_ids]
+    @product.attributes = {'product_option_ids' => []}.merge(params[:product] || {})
 
     respond_to do |format|
       if @product.update(product_params)
@@ -66,7 +65,7 @@ class ProductsController < SecureController
 		end
 
 		def product_params
-      params.require(:product).permit(:name, :price, :desc, :product_category_id, images_attributes: [:title, :image_data, :_destroy, :id], product_option_ids: [])
+      params.require(:product).permit(:name, :price, :desc, :product_category_id, products_attributes: [:title, :product_data, :_destroy, :id], product_option_ids: [])
     end
 
 end

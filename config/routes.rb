@@ -1,5 +1,5 @@
 Trashmessengerbags::Application.routes.draw do
-  resources :images, only: [:index, :new, :create, :destroy]
+  resources :images
   
   match '/home', to: 'home_pages#home', via: 'get'
   get "home_pages/store"

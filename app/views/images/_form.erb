@@ -1,0 +1,33 @@
+<% if @image.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
+    <ul>
+      <% @image.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>  
+<% end %>
+<div class="image_edit">
+  <%= form_for @image, html: { multipart: true } do |f| %>
+
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %><br>
+      <%= f.label :desc %><br>
+      <%= f.text_field :desc %><br>
+      <%= f.label :title %><br>
+      <%= f.text_field :title %><br>
+      <% if f.object.new_record? %>
+        <%= f.label :image_data %><br>
+      <% else %>
+        <%= image_tag f.object.image_data_url(:thumb).to_s %>
+      <% end %><br>
+      <%= f.file_field :image_data %>
+      <%= f.collection_check_boxes(:gallery_ids, Gallery.all, :id, :name, options = {"checked" => :gallery_ids}) %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>

@@ -6,4 +6,7 @@ class Image < ActiveRecord::Base
 	has_many :product_categories, through: :gallery_indices, source: :gallery_indexable, source_type: "ProductCategory", autosave: true
 	mount_uploader :image_data, ImageUploader
 
+
+  accepts_nested_attributes_for :galleries, reject_if: :all_blank, allow_destroy: true
+
 end
