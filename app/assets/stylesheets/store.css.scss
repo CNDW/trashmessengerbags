@@ -3,3 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.store-navbar {
+  @extend .navbar;
+  @extend .navbar-inverse;
+  padding: 0;
+  font-size: 20px;
+}

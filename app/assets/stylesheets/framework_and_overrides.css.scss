@@ -1,5 +1,4 @@
 // import the CSS framework
-@import "bootstrap";
 
 // make all images responsive by default
 img {
@@ -7,27 +6,7 @@ img {
   margin: 0 auto;
   }
 // override for the 'Home' navigation link
-.navbar li a {
-  line-height: 30px;
-  font-size: 20px;
-  }
-.nav-home {
-  float: none;
-  display: inline-block;
-  *display: inline;
-  *zoom:1;
-  vertical-align: top;
-}
-.navbar-main {
-  margin-bottom: 0px;
-}
 
-.store-navbar {
-  @extend .navbar;
-  @extend .navbar-inverse;
-  padding: 0;
-
-}
 
 .sidebar {
   position: fixed;
@@ -69,40 +48,8 @@ img {
   }
 // apply styles to HTML elements
 // to make views framework-neutral
-.btn-group-footer {
-  position: left;
-  text-align: left;
-  vertical-align: bottom;
-}
-.btn-link {
-  color: rgb(20, 20, 20);
-}
-.btn-footer {
-  text-align: left;
-  padding: 0;
-}
-main {
-  @extend .container-fluid;
-  background-color: #fff;
-  padding:0 0 80px 0;
-  width: 100%;
-  margin-top: 0px;
-  }
-HTML {
-  height: 100%;
-}
-#wrap {
-  min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  margin: 0 auto auto;
-}
-body {
-  height: 100%;
-  min-height: 100%;
-  overflow: auto;
-  padding-bottom: 70px;
-}
+
+
 section {
   @extend .row;
   margin-top: 20px;
@@ -112,11 +59,5 @@ input {
   margin-left: auto;
   @extend .text-center;
 }
-header {
-  padding-bottom: 0;
-}
-footer {
-  height: 70px;
-  text-align: left;
-  background-color: #bcbcbc;
-}
+
+
