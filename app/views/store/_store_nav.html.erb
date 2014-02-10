@@ -1,5 +1,7 @@
-<div class="store-navbar" >
-	<div class="container">
-
-	</div>
-</div>
+<nav class="navbar-main navbar-store" >
+	<ul class="nav-main nav-store">
+		<li><%= link_to 'Catalogue', store_path, class: "nav-link-main nav-link-store" %></li>
+		<li><%= link_to 'In Stock', store_premade_path, class: "nav-link-main nav-link-store" %></li>
+		<li><%= link_to 'Custom Shop', store_custom_path, class: "nav-link-main nav-link-store" %></li>
+	</ul>
+</nav>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140207233649) do
+ActiveRecord::Schema.define(version: 20140210154021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,14 @@ ActiveRecord::Schema.define(version: 20140207233649) do
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
   add_index "admins", ["remember_token"], name: "index_admins_on_remember_token", using: :btree
 
+  create_table "colors", force: true do |t|
+    t.string   "name"
+    t.string   "desc"
+    t.decimal  "price",      precision: 8, scale: 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "custom_items", force: true do |t|
     t.string   "name"
     t.decimal  "price",               precision: 8, scale: 2
@@ -38,9 +46,12 @@ ActiveRecord::Schema.define(version: 20140207233649) do
     t.string   "category"
   end
 
-  create_table "custom_items_product_options", id: false, force: true do |t|
-    t.integer "custom_item_id"
-    t.integer "product_option_id"
+  create_table "extras", force: true do |t|
+    t.string   "name"
+    t.string   "desc"
+    t.decimal  "price",      precision: 8, scale: 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "galleries", force: true do |t|
@@ -59,6 +70,10 @@ ActiveRecord::Schema.define(version: 20140207233649) do
     t.integer "image_id"
   end
 
+  add_index "gallery_indices", ["gallery_id"], name: "index_gallery_indices_on_gallery_id", using: :btree
+  add_index "gallery_indices", ["gallery_indexable_id"], name: "index_gallery_indices_on_gallery_indexable_id", using: :btree
+  add_index "gallery_indices", ["image_id"], name: "index_gallery_indices_on_image_id", using: :btree
+
   create_table "images", force: true do |t|
     t.string   "title"
     t.string   "desc"
@@ -68,10 +83,15 @@ ActiveRecord::Schema.define(version: 20140207233649) do
     t.string   "name"
   end
 
-  create_table "options_products", id: false, force: true do |t|
-    t.integer "product_option_id"
-    t.integer "product_id"
+  create_table "options", force: true do |t|
+    t.integer "customizable_id"
+    t.string  "customizable_type"
+    t.integer "optionable_id"
+    t.string  "optionable_type"
   end
+
+  add_index "options", ["customizable_id"], name: "index_options_on_customizable_id", using: :btree
+  add_index "options", ["optionable_id"], name: "index_options_on_optionable_id", using: :btree
 
   create_table "product_categories", force: true do |t|
     t.string   "name"
@@ -80,14 +100,6 @@ ActiveRecord::Schema.define(version: 20140207233649) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "category"
-  end
-
-  create_table "product_options", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "desc"
-    t.decimal  "price",      precision: 8, scale: 2
   end
 
   create_table "products", force: true do |t|
@@ -100,6 +112,15 @@ ActiveRecord::Schema.define(version: 20140207233649) do
   end
 
   add_index "products", ["name"], name: "index_products_on_name", unique: true, using: :btree
+  add_index "products", ["product_category_id"], name: "index_products_on_product_category_id", using: :btree
+
+  create_table "sizes", force: true do |t|
+    t.string   "name"
+    t.string   "desc"
+    t.decimal  "price",      precision: 8, scale: 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"

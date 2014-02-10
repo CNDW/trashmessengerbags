@@ -43,8 +43,8 @@ class CustomItemsController < ApplicationController
   # PATCH/PUT /custom_items/1
   # PATCH/PUT /custom_items/1.json
   def update
-    @custom_item.product_options.clear
-    @custom_item.product_option_ids=params[:custom_item][:product_option_ids] 
+    #@custom_item.product_options.clear
+    #@custom_item.product_option_ids=params[:custom_item][:product_option_ids] 
     respond_to do |format|
       if @custom_item.update(custom_item_params)
         format.js
@@ -75,6 +75,6 @@ class CustomItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def custom_item_params
-      params.require(:custom_item).permit(:product_category_id, :category, :product_id, :product_option_ids => [])
+      params.require(:custom_item).permit(:product_category_id, :category, :product_id)
     end
 end

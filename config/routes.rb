@@ -5,13 +5,12 @@ Trashmessengerbags::Application.routes.draw do
   resources :images
   
   match '/home', to: 'home_pages#home', via: 'get'
-  match '/store', to: 'store#index', via: 'get'
+  match '/store', to: 'store#catalogue', via: 'get'
   match '/gallery', to: 'home_pages#gallery', via: 'get'
   match '/blog', to: 'home_pages#blog', via: 'get'
   match '/locations', to: 'home_pages#locations', via: 'get'
   match '/about', to: 'home_pages#about', via: 'get'
   match '/contact', to: 'home_pages#contact', via: 'get'
-  resources :product_options
 
   resources :custom_items 
 
@@ -27,7 +26,7 @@ Trashmessengerbags::Application.routes.draw do
 
   resources :products
   
-  root 'custom_items#index'
+  root 'home_pages#home'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

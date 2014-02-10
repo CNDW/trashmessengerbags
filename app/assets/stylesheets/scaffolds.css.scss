@@ -29,6 +29,7 @@ header {
   @extend .navbar-inverse;
   margin-bottom: 0px;
   border-radius: 0;
+  border-width: 0;
 }
 
 .nav-main {
@@ -38,12 +39,15 @@ header {
   *zoom:1;
   vertical-align: top;
 
-  .main-nav-link {
+  .nav-link-main {
     padding: 0;
     color: rgb(220, 220, 220);
     font-family: $capture_it;
     font-size: 35px;
     &:hover {
+      color: black;
+    }
+    &:active {
       color: rgb(200, 0, 0);
     }
   }

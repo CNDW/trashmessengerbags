@@ -27,10 +27,6 @@
     <%= f.collection_select( :product_category_id, ProductCategory.all, :id, :name, { include_blank: 'Category' } ) %>
     <%= link_to "New Product Category", new_product_category_path %>
   </div>
-  <div>
-    Options available for this product<br>
-    <%= f.collection_check_boxes( :product_option_ids, ProductOption.all, :id, :name, options = { "checked" => :product_option_ids } ) %>
-  </div>
   <div class="field">
     Images for this product<br>
     <%= f.fields_for :images, :html => { multipart: true } do |ff| %>

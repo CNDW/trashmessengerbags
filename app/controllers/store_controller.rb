@@ -7,8 +7,5 @@ class StoreController < ApplicationController
 
   def custom
   end
-
-  def index
-  end
   
 end

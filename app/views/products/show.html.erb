@@ -16,11 +16,6 @@
 </p>
 
 <p>
-	<strong>Options</strong>
-	<%= @product.option_list %>
-</p>
-
-<p>
 	<strong>Images</strong><br>
 	<% @product.images.each do |image| %>
 		<%= image_tag image.image_data_url.to_s %>

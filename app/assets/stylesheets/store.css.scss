@@ -2,10 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-.store-navbar {
-  @extend .navbar;
-  @extend .navbar-inverse;
-  padding: 0;
-  font-size: 20px;
+.navbar-store{
+	min-height: 20px;
+}
+.nav-store{
+	.nav-link-store {
+		font-size: 20px;
+	}
 }

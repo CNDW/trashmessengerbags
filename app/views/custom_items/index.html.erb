@@ -8,7 +8,6 @@
       <th>category</th>
       <th>sub category</th>
       <th>product</th>
-      <th>options</th>
       <th></th>
       <th></th>
     </tr>
@@ -21,11 +20,6 @@
         <td><%= custom_item.category%></td>
         <td><%= custom_item.product_category.name %></td>
         <td><%= custom_item.product.name %></td>
-        <td>
-          <% custom_item.product_options.each do |option| %>
-            <%= option.name %>
-          <% end %>
-        </td>
         <td><%= link_to 'Show', custom_item %></td>
         <td><%= link_to 'Destroy', custom_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

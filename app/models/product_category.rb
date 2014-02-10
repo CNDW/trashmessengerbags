@@ -8,10 +8,6 @@ class ProductCategory < ActiveRecord::Base
   validates :category, presence: true, format: /\A[\sa-z0-9]+\Z/i
   validates :desc, format: /\A[\sa-z0-9,.?!@#$%^&*_-]+\Z/i
   
-  def category_name
-    "#{self.name}"
-  end
-  
   def self.categories
     ProductCategory.all.map { |product| product.category }.uniq
   end
