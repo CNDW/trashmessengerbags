@@ -14,6 +14,5 @@ class CustomItem < ActiveRecord::Base
 
   def self.product_listing
   	Product.all.map { |product| [product.id, product.product_category_id, 1] }#need to change 1 for updated options
-  end
-  
+  end 
 end
