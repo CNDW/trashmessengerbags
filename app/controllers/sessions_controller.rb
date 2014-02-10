@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     admin = Admin.find_by_name(params[:session][:name])
     if admin and admin.authenticate(params[:session][:password])
       sign_in admin
-      redirect_to custom_items_url, notice: "Logged in"
+      redirect_to products_url, notice: "Logged in"
     else
       flash[:error] = 'Invalid admin/password comination'
       render 'new'
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
 
   def destroy
     sign_out
-    redirect_to custom_items_url, notice: "Logged out"
+    redirect_to root_url, notice: "Logged out"
   end
   
   private 

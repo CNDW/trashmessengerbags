@@ -1,4 +1,8 @@
 class CustomItem < ActiveRecord::Base
+  has_many :options, as: :customizable, dependent: :destroy
+  has_many :sizes, through: :options, autosave: true
+  has_many :colors, through: :options, autosave: true
+  has_many :extras, through: :options, autosave: true
   belongs_to :product_category
   belongs_to :product
   validates :product_category_id, presence: true
