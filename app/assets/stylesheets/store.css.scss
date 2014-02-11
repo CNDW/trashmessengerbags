@@ -2,11 +2,28 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.navbar-store{
+.navbar-store {
 	min-height: 20px;
 }
-.nav-store{
+.nav-store {
 	.nav-link-store {
 		font-size: 20px;
 	}
+}
+.col-store {
+	@extend .col-sm-12;
+}
+.thumbnail-store {
+	@extend .thumbnail;
+}
+.store-section {
+	@extend .row;
+	margin: 0;
+}
+
+.col-store-item {
+	@extend .col-sm-2;
+	float:none;
+  display:inline-block;
+  vertical-align:middle;
 }

@@ -15,5 +15,11 @@ class ProductCategory < ActiveRecord::Base
   def product_list
     self.products.map { |product| product.name }
   end
+
+  def self.by_category #returns a hash of ProductCategory collections, sorted by categorization
+    cats = {}
+    ProductCategory.categories.each { |cat| cats.store(cat, ProductCategory.where(category: cat)) }
+    return cats
+  end
   
 end

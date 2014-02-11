@@ -16,4 +16,9 @@ class Product < ActiveRecord::Base
   def option_list#need to update for new option structure
   end
 
+  def catalogue_image
+    return Image.first.image_data_url.to_s if self.images.empty?
+    return self.images.first.image_data_url.to_s if !self.images.empty?
+  end
+
 end
