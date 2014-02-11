@@ -46,10 +46,12 @@ header {
     font-family: $capture_it;
     font-size: 35px;
     &:hover {
-      color: black;
+      color: rgb(200, 0, 0);
+      background-color: rgb(34, 34, 34);
     }
     &:active {
-      color: rgb(200, 0, 0);
+      color: black;
+      background-color: rgb(238, 238, 238);
     }
   }
 }

@@ -1,7 +1,9 @@
 // Place all the styles related to the Admin controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.sidebar {
+.sidebar-admin {
+  @extend .col-sm-3;
+  @extend .col-md-2; 
   position: fixed;
   top: 0;
   left: 0;
@@ -14,7 +16,7 @@
   text-align: left;
 }
 
-.nav-sidebar {
+.nav-sidebar-admin {
   margin-left: -20px;
   margin-right: -21px;
   margin-bottom: 20px;

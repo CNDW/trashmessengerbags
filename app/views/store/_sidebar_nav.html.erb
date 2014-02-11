@@ -1,0 +1,14 @@
+<% @products.each do |section, categories| %>
+	<div class="sidebar-catalogue-buttons">
+		<button class="btn btn-default" type="button"><%= section %></button>
+		<button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
+	    <span class="caret"></span>
+	    <span class="sr-only"></span>
+		</button>
+		<ul class="dropdown-menu" role="menu">
+			<% categories.each do |category| %>
+				<li><%= category.name %></li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>

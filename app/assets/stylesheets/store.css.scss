@@ -10,8 +10,28 @@
 		font-size: 20px;
 	}
 }
-.col-store {
-	@extend .col-sm-12;
+.col-catalogue {
+	@extend .col-sm-10;
+	@extend .col-sm-offset-2;
+}
+.sidebar-catalogue {
+	@extend .col-sm-2;
+  left: 0;
+  bottom: 0;
+  z-index: 1000;
+  padding-top: 70px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  border-right: 1px solid #eee;
+  text-align: left;
+  length: 100%;
+  background-color: green;
+}
+.sidebar-catalogue-buttons {
+	@extend .btn-group;
+	ul {
+		@extend .dropdown-menu;
+	}
 }
 .thumbnail-store {
 	@extend .thumbnail;
