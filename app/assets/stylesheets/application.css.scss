@@ -10,8 +10,14 @@
  *
  *= require_self
  */
- 
-@import "fonts";
+@font_face{
+	font-family: 'Capture it';
+	src: font-url("Capture it.ttf") unquote("format('truetype')");
+	font-weight: normal;
+	font-style: normal;
+}
+$capture_it: 'Capture it';
+
 @import "bootstrap";
 @import "scaffolds";
 @import "admin";
