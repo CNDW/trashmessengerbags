@@ -1,14 +1,24 @@
-<% @products.each do |section, categories| %>
-	<div class="sidebar-catalogue-buttons">
-		<button class="btn btn-default" type="button"><%= section %></button>
-		<button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
-	    <span class="caret"></span>
-	    <span class="sr-only"></span>
-		</button>
-		<ul class="dropdown-menu" role="menu">
-			<% categories.each do |category| %>
-				<li><%= category.name %></li>
-			<% end %>
-		</ul>
+<div class="catalogue-sidebar-navigation">
+	<div class="catalogue-section" data-toggle="buttons">
+		<% @products.each do |section, categories| %>
+			<div class="catalogue-section-heading">
+				<h4>
+					<%= section %>
+				</h4>
+			</div>
+			<div class="catalogue-section-body">
+				<div class="catalogue-section-buttons" data-toggle="buttons">
+				
+					<% categories.each do |category| %>
+						<button class="btn" id="<%= category.id %>">
+							<input class="category-selector" type="radio">
+							<%= category.name %>
+							</input>
+						</button><br>
+					<% end %>
+				
+				</div>
+			</div>
+		<% end %>
 	</div>
-<% end %>
+</div>

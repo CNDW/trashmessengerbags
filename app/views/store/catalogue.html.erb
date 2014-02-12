@@ -3,37 +3,28 @@
 	<%= render "store/sidebar_nav" %>
 </div>
 <div class="col-catalogue">
-	<div class="row">
-		<h1>Catalogue</h1>
-	</div>
 
 	<div class="store-section">
 		<% @products.each do |section, categories| %>
-			<div class="store-section">
-				<h2><%= section %></h2>
 			
-				<% categories.each do |category| %>
-					<div class="store-section">
-					<h3><%= category.name %></h3>
+			<% categories.each do |category| %>
 
-						<% category.products.each do |product| %>
-							<div class="col-store-item">
+				<% category.products.each do |product| %>
+					<div class="col-store-item category-<%= category.id %> section-<%= section %>">
 								
-								<div class="thumbnail-store">
-									<%= image_tag product.catalogue_image, alt: "Missing image" %>
-									<h4><%= product.name %></h4>
-									<p><%= product.desc %></p>
-								</div>
+						<div class="thumbnail-store">
+							<%= image_tag product.catalogue_image, alt: "Missing image" %>
+							<h4><%= product.name %></h4>
+							<p><%= product.desc %></p>
+						</div>
 
-							</div>		
-						<% end %>
-					
-					</div>
+					</div>		
 				<% end %>
+					
+			<% end %>
 			
-			</div>
 		<% end %>
 	</div>
 
-</div>		
+</div>	
 
