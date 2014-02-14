@@ -9,18 +9,5 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require_tree .
  */
-@font_face{
-	font-family: 'Capture it';
-	src: font-url("Capture it.ttf") unquote("format('truetype')");
-	font-weight: normal;
-	font-style: normal;
-}
-$capture_it: 'Capture it';
-
-@import "bootstrap";
-@import "scaffolds";
-@import "admin";
-@import "store";
-@import "images";
-@import "framework_and_overrides"

@@ -27,4 +27,8 @@ class Forgery::Trash < Forgery
  	"#{adjective} #{noun} #{adverb} #{verb}."
  end
 
+ def self.name
+ 	"#{noun}"
+ end
+
 end

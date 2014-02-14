@@ -1,6 +1,6 @@
 class HomePagesController < ApplicationController
   def home
-    @carousel = Gallery.first
+    @carousel = Gallery.find_by(title: "home_carousel")
   end
 
   def gallery

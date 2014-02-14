@@ -2,10 +2,10 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).ready ->
-	$(".col-store-item").hide()
+	$(".store-item").hide()
 	$('.category-selector').first().click()
 
-$(document).on "click", ".catalogue-section-buttons .btn", (e)->
+$(document).on "click", ".catalogue-button", (e)->
 	e.preventDefault()
-	$(".col-store-item").hide()
+	$(".store-item").hide()
 	$(".category-" + $(this).attr('id')).show()

@@ -1,4 +1,5 @@
 
+$capture_it: 'Capture it';
 HTML {
   height: 100%;
 }
@@ -19,21 +20,16 @@ body {
 }
 
 header {
-  @extend .container-fluid;
   padding-bottom: 0;
 }
 
 .navbar-main {
-  @extend .navbar;
-  @extend .navbar-inverse;
   margin-bottom: 0px;
   border-radius: 0;
   border-width: 0;
 }
 
 .nav-main {
-  @extend .nav;
-  @extend .nav-justified;
   float: none;
   *zoom:1;
   vertical-align: top;
@@ -54,14 +50,6 @@ header {
   }
 }
 
-main {
-  @extend .container-fluid;
-  background-color: #fff;
-  padding:0 0 70px 0;
-  width: 100%;
-  margin-top: 0px;
-}
-
 footer {
   height: 70px;
   background-color: #bcbcbc;
@@ -69,14 +57,11 @@ footer {
 }
 
 .btn-group-footer {
-  @extend .btn-group-vertical;
   position: left;
   vertical-align: bottom;
 }   
 
 .btn-footer {
-  @extend .btn;
-  @extend .btn-link; 
   color: rgb(20, 20, 20);
   padding: 0;
   text-align: left;

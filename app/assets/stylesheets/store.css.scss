@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$capture_it: 'Capture it';
 .navbar-store {
 	min-height: 20px;
 }
@@ -11,13 +12,11 @@
 	}
 }
 .col-catalogue {
-	@extend .col-sm-10;
 	.row {
 		margin: 0;
 	}
 }
 .sidebar-catalogue {
-	@extend .col-sm-2;
   left: 0;
   bottom: 0;
   z-index: 1000;
@@ -28,46 +27,15 @@
   length: 100%;
   font-family: $capture_it;
 }
-.catalogue-sidebar-navigation {
-	@extend .panel-group;
 
-	
-}
-
-.catalogue-section {
-	@extend .panel;
-	@extend .panel-default;
-
-}
-.catalogue-section-heading {
-	@extend .panel-heading;
-}
-.catalogue-section-body {
-	height: auto;
-}
-.catalogue-section-buttons {
-	@extend .btn-group;
-	width: 100%;
-	.btn {
-		@extend .btn-primary;
-		width: 100%;
-	}
-}
-
-
-.thumbnail-store {
-	@extend .thumbnail;
-}
 .store-section {
-	@extend .row;
 	padding-top: 10px;
 }
 .store-category {
 	display:inline-block;
 }
 
-.col-store-item {
-	@extend .col-sm-5;
+.store-item {
 	float:none;
   display:inline-block;
   vertical-align:middle;
