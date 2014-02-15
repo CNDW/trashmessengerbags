@@ -35,20 +35,47 @@ $capture_it: 'Capture it';
 }
 
 .store-item {
-  background-color: blue;
 }
 .catalogue-carousel {
   padding-top: 20px;
+
   .carousel-inner {
-    margin-bottom: 50px;
+    height: 300px;
+    width: 300px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
   }
-  .carousel-indicators {
-    bottom: -50px;
-  }
-  img {
+  .catalogue-indicators {
+    bottom: 0;
+    left: 0;
+    margin-left: 0;
+    width: 100%;
+    position: relative;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
 
-  }
-  li {
-
+    .active {
+      border: 2px solid #9BA000;
+    }
+  
+    li {
+      border: medium none;
+      border-radius: 0;
+      margin-bottom: 2px;
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 0;
+      width: 50px;
+      height: 50px;
+      img {
+        border: 2px solid #0A0A0A;
+        float: left;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
   }
 }
