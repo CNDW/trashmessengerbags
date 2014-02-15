@@ -30,12 +30,12 @@ class CustomItemsController < ApplicationController
 
     respond_to do |format|
       if @custom_item.save
-        format.html { redirect_to @custom_item, notice: 'Custom item was successfully created.' }
+        format.html { redirect_to custom_items_url, notice: 'Custom item was successfully created.' }
         format.json { render action: 'show', status: :created, location: @custom_item }
       else
         format.js
         format.html { render action: 'new' }
-        format.json { render json: @custom_item.errors, status: :unprocessable_entity }
+        format.json { render json: @custom_items.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -48,11 +48,11 @@ class CustomItemsController < ApplicationController
     respond_to do |format|
       if @custom_item.update(custom_item_params)
         format.js
-        format.html { redirect_to @custom_item, notice: 'Custom item was successfully updated.' }
+        format.html { redirect_to custom_items_url, notice: 'Custom item was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @custom_item.errors, status: :unprocessable_entity }
+        format.json { render json: @custom_items.errors, status: :unprocessable_entity }
       end
     end
   end

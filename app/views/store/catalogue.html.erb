@@ -2,29 +2,39 @@
 <div class="col-sm-2 sidebar-catalogue">
 	<%= render "store/sidebar_nav" %>
 </div>
-<div class="col-catalogue col-sm-10">
-
-	<div class="row store-section">
-		<% @products.each do |section, categories| %>
+<% @products.each do |section, categories| %>
+	<div class="col-catalogue col-sm-10">
 			
-			<% categories.each do |category| %>
+		<% categories.each do |category| %>
 
-				<% category.products.each do |product| %>
-					<div class="col-sm-5 store-item category-<%= category.id %> section-<%= section %>">
-								
-						<div class="thumbnail">
-							<%= image_tag product.catalogue_image, alt: "Missing image" %>
-							<h2><%= product.name %></h2>
-							<p><%= product.desc %></p>
-						</div>
-
-					</div>		
-				<% end %>
+			<div class="store-item category-<%= category.id %> col-sm-5">
+				<div class="carousel slide catalogue-carousel" data-ride="carousel" id="carousel-<%= category.id %>">
 					
-			<% end %>
-			
+				  <div class="carousel-inner">
+				  	<% category.gallery.images.each_with_index do |image, index| %>
+					    <div class="item<% if index == 0 %> active<% end %>">
+					      <img src="<%= image.image_data_url %>" alt="loading <%= index %>" width="300" height="300">
+					    </div>
+					  <% end %>
+				  </div>
+				
+				  <ol class="carousel-indicators nav">
+				  	<% category.gallery.images.each_with_index do |image, index| %>
+				    	<li data-target="#carousel-<%= category.id %>" data-slide-to="<%= index %>" <% if index == 0 %>class="active" <% end %>>Item</li>
+				    <% end %>
+				  </ol>
+
+				</div>
+			</div>
+
+			<div class="store-item category-<%= category.id %> col-sm-5">
+				<% category.products.each do |product| %>
+						<h2><%= product.name %></h2>
+						<p><%= product.desc %></p>		
+				<% end %>
+			</div>
+
 		<% end %>
-	</div>
 
-</div>	
-
+	</div>			
+<% end %>

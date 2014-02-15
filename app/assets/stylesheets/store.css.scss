@@ -32,11 +32,23 @@ $capture_it: 'Capture it';
 	padding-top: 10px;
 }
 .store-category {
-	display:inline-block;
 }
 
 .store-item {
-	float:none;
-  display:inline-block;
-  vertical-align:middle;
+  background-color: blue;
+}
+.catalogue-carousel {
+  padding-top: 20px;
+  .carousel-inner {
+    margin-bottom: 50px;
+  }
+  .carousel-indicators {
+    bottom: -50px;
+  }
+  img {
+
+  }
+  li {
+
+  }
 }

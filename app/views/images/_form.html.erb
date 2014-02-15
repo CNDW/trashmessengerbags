@@ -23,8 +23,9 @@
       <% else %>
         <%= image_tag f.object.image_data_url(:thumb).to_s %>
       <% end %><br>
-      <%= f.file_field :image_data %>
-      <%= f.collection_check_boxes(:gallery_ids, Gallery.all, :id, :name, options = {"checked" => :gallery_ids}) %>
+      <%= f.file_field :image_data %><br>
+      Galleries to include this image in:<br>
+      <%= f.collection_check_boxes(:gallery_ids, Gallery.all, :id, :name, options = {"checked" => :gallery_ids}) %><br>
     </div>
     <div class="actions">
       <%= f.submit %>

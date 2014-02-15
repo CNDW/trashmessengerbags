@@ -40,6 +40,8 @@
         <%= image_tag ff.object.image_data_url(:thumb).to_s %>
         <%= ff.check_box(:_destroy) + ff.label(:_destroy, 'Remove') %><br>
       <% end %>
+      Image galleries to include this image in: <br>
+      <%= ff.collection_check_boxes(:gallery_ids, Gallery.all, :id, :name, options = {"checked" => :gallery_ids}) %><br>
     <% end %>
   </div>
   <div class="actions">

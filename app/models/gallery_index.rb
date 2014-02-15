@@ -3,7 +3,7 @@ class GalleryIndex < ActiveRecord::Base
 	belongs_to :image, autosave: true
 	belongs_to :gallery_indexable, polymorphic: true, autosave: true
 
-	after_create :link_to_gallery
+	after_create :link_to_gallery, if: Proc.new { |index| index.gallery_indexable_type == "Product" }
 	after_destroy :destroy_empty_gallery, if: Proc.new { |index| !index.gallery_id.nil? }
 
 
@@ -13,10 +13,7 @@ class GalleryIndex < ActiveRecord::Base
 	end
 
 	def link_to_gallery
-		return if self.gallery_indexable_type.nil?
-		if self.gallery_id.nil?
-			Gallery.create( name: self.gallery_indexable_type ) if Gallery.find_by( name: self.gallery_indexable_type ).nil?
-			self.image.galleries<<Gallery.find_by( name: self.gallery_indexable_type )
-		end
+		gallery = Gallery.find_or_create_by( name: self.gallery_indexable.product_category.name )
+		self.image.galleries<<gallery unless self.image.galleries.exists?(gallery)
 	end
 end
