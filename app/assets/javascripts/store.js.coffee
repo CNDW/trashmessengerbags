@@ -5,7 +5,7 @@ $(document).ready ->
 	$(".store-item").hide()
 	$('.category-selector').first().click()
 
-$(document).on "click", ".catalogue-button", (e)->
+$(document).on "click", ".category-selector", (e)->
 	e.preventDefault()
 	$(".store-item").hide()
 	$(".category-" + $(this).attr('id')).show()

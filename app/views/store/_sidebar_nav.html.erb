@@ -1,19 +1,15 @@
-<div class="panel-group">
-	<div class="panel panel-default" data-toggle="buttons">
+<div class="panel-group store-sidebar">
+	<div class="panel panel-default btn-toolbar" role="toolbar">
 		<% @products.each do |section, categories| %>
 			<div class="panel-heading">
-				<h2>
-					<%= section %>
-				</h2>
+				<%= section %>
 			</div>
 			<div>
-				<div class="btn-group" data-toggle="buttons">
+				<div class="btn-group store-sidebar-buttons">
 				
 					<% categories.each do |category| %>
-						<button class="btn btn-primary catalogue-button" id="<%= category.id %>">
-							<input class="category-selector" type="radio">
+						<button class="category-selector btn btn-primary" type="button" id="<%= category.id %>">
 							<%= category.name %>
-							</input>
 						</button><br>
 					<% end %>
 				
