@@ -15,7 +15,6 @@
 /log/*.log
 /tmp
 /public/uploads
-/assets/images
 /spec/support
 
 # Ignore unneeded files
@@ -28,6 +27,10 @@ doc/
 .idea
 .secret
 *.jpg
+*.eot
+*.svg
+*.ttf
+*.woff
 
 
 # Ignore secret tokens
