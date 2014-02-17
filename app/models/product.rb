@@ -16,6 +16,16 @@ class Product < ActiveRecord::Base
   def option_list#need to update for new option structure
   end
 
+  def image_thumbnails
+    self.images.map do |image|
+      image.image_data_url(:thumb).to_s
+    end
+  end
+
+  def categorization
+    self.product_category.category
+  end
+
   def catalogue_image
     return Image.first.image_data_url.to_s if self.images.empty?
     return self.images.first.image_data_url.to_s if !self.images.empty?
