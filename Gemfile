@@ -42,7 +42,7 @@ gem 'unicorn', '~> 4.8.2'
 # Use gon to pass controller variables to javascript
 gem 'gon', '~> 5.0.1'
 # Use forgery for seed data creation
-gem 'forgery' '~> 0.5.0'
+gem 'forgery', '~> 0.5.0'
 # Use tablecloth for view table creation
 gem 'table_cloth', '~> 0.4.0'
 # Use Draper for view models aka decorators
