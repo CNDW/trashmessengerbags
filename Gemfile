@@ -5,8 +5,8 @@ ruby '2.0.0'
 gem 'rails', '4.0.0'
 
 # Use postgresql as the database for Active Record
-gem 'pg'
-gem 'postgres_ext'
+gem 'pg', '~> 0.17.1'
+gem 'postgres_ext', '~> 2.2.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -16,8 +16,8 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-gem 'carrierwave'
-gem 'rmagick'
+gem 'carrierwave', '~> 0.9.0'
+gem 'rmagick', '~> 2.13.2'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -37,11 +37,16 @@ end
 gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
-gem 'unicorn'
+gem 'unicorn', '~> 4.8.2'
 
 # Use gon to pass controller variables to javascript
-gem 'gon'
-gem 'forgery'
+gem 'gon', '~> 5.0.1'
+# Use forgery for seed data creation
+gem 'forgery' '~> 0.5.0'
+# Use tablecloth for view table creation
+gem 'table_cloth', '~> 0.4.0'
+# Use Draper for view models aka decorators
+gem 'draper', '~> 1.3'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
@@ -49,8 +54,8 @@ gem 'forgery'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'bootstrap-sass'
-gem 'sass-rails'
+gem 'bootstrap-sass', '~> 3.1.0'
+gem 'sass-rails', '~> 4.0.1'
 
 
 group :development do
