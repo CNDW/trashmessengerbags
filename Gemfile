@@ -59,6 +59,7 @@ gem 'sass-rails', '~> 4.0.1'
 
 
 group :development do
+  gem 'better_errors'
   gem 'rails_layout'
 end
 

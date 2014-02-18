@@ -7,4 +7,8 @@ class Image < ActiveRecord::Base
 
   accepts_nested_attributes_for :galleries, reject_if: :all_blank, allow_destroy: true
 
+  def thumb
+  	self.image_data_url(:thumb)
+  end
+
 end

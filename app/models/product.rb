@@ -3,7 +3,7 @@ class Product < ActiveRecord::Base
   has_many :images, through: :gallery_indices, autosave: true
   has_many :galleries, through: :gallery_indices, autosave: true
   has_many :custom_items, autosave: true, dependent: :nullify
-  has_many :options, as: :customizable, dependent: :destroy
+  has_many :options, as: :optionable, dependent: :destroy
   has_many :sizes, through: :options, autosave: true
   has_many :colors, through: :options, autosave: true
   has_many :extras, through: :options, autosave: true
@@ -16,10 +16,8 @@ class Product < ActiveRecord::Base
   def option_list#need to update for new option structure
   end
 
-  def image_thumbnails
-    self.images.map do |image|
-      image.image_data_url(:thumb).to_s
-    end
+  def thumbs
+    self.images.map { |img| img.thumb }
   end
 
   def categorization

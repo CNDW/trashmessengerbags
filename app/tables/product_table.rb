@@ -1,21 +1,18 @@
 class ProductTable < TableCloth::Base
-  # To include actions on this table, uncomment this line
-  include TableCloth::Extensions::Actions
-
   # Define columns with the #column method
   # column :name, :email
-  column :name, :price, :desc, :product_category, :images
+  column :name, :price, :desc
   # Columns can be provided a block
   #
   # column :name do |object|
   #   object.downcase
   # end
-  column :product_category do |cat|
-    "#{cat.product_category.name} / #{cat.product_category.category}"
+  column :product_category do |object|
+    "#{object.product_category.name} / #{object.product_category.category}"
   end
-  column :images do |object|
-    object.image_thumbnails
-  end
+
+  column :images, using: ThumbnailColumn
+
 
   # Columns can also have conditionals if you want.
   # The conditions are checked against the table's methods.
