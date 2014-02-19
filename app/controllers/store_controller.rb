@@ -1,6 +1,6 @@
 class StoreController < ApplicationController
   def catalogue
-  	@products = ProductCategory.by_category
+  	@products = ProductType.by_category
   end
 
   def premade

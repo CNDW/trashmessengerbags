@@ -7,7 +7,7 @@ class Product < ActiveRecord::Base
   has_many :sizes, through: :options, autosave: true
   has_many :colors, through: :options, autosave: true
   has_many :extras, through: :options, autosave: true
-  belongs_to :product_category, autosave: true
+  belongs_to :product_type, autosave: true
   validates :name, presence: true, uniqueness: true
 
   accepts_nested_attributes_for :images, allow_destroy: true, :reject_if => proc{ |attr| attr[:image_data].nil? }
@@ -21,7 +21,7 @@ class Product < ActiveRecord::Base
   end
 
   def categorization
-    self.product_category.category
+    self.product_type.category
   end
 
   def catalogue_image

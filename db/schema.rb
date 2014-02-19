@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140210154021) do
+ActiveRecord::Schema.define(version: 20140219184127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,10 +38,10 @@ ActiveRecord::Schema.define(version: 20140210154021) do
 
   create_table "custom_items", force: true do |t|
     t.string   "name"
-    t.decimal  "price",               precision: 8, scale: 2
+    t.decimal  "price",           precision: 8, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "product_category_id"
+    t.integer  "product_type_id"
     t.integer  "product_id"
     t.string   "category"
   end
@@ -93,7 +93,7 @@ ActiveRecord::Schema.define(version: 20140210154021) do
   add_index "options", ["customizable_id"], name: "index_options_on_customizable_id", using: :btree
   add_index "options", ["optionable_id"], name: "index_options_on_optionable_id", using: :btree
 
-  create_table "product_categories", force: true do |t|
+  create_table "product_types", force: true do |t|
     t.string   "name"
     t.decimal  "price",      precision: 8, scale: 2
     t.string   "desc"
@@ -104,15 +104,15 @@ ActiveRecord::Schema.define(version: 20140210154021) do
 
   create_table "products", force: true do |t|
     t.string   "name"
-    t.decimal  "price",               precision: 8, scale: 2
+    t.decimal  "price",           precision: 8, scale: 2
     t.string   "desc"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "product_category_id"
+    t.integer  "product_type_id"
   end
 
   add_index "products", ["name"], name: "index_products_on_name", unique: true, using: :btree
-  add_index "products", ["product_category_id"], name: "index_products_on_product_category_id", using: :btree
+  add_index "products", ["product_type_id"], name: "index_products_on_product_type_id", using: :btree
 
   create_table "sizes", force: true do |t|
     t.string   "name"

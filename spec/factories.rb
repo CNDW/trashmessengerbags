@@ -12,8 +12,8 @@ FactoryGirl.define do
 	end
 	
 
-	factory :product_category do
-		sequence(:name) {|n| "Category #{n}"}
+	factory :product_type do
+		sequence(:name) {|n| "Product Type #{n}"}
 		desc { Forgery(:trash).sentence }
 		category { categorization.sample }
 	end

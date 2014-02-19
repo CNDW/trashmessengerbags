@@ -7,15 +7,15 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require 'forgery'
 Admin.create!(name: 'admin', password: 'password', password_confirmation: 'password', email: 'admin@trashbags.com')
-category = { "Bags" => {'Messenger Bags' => [["Trash Can", "trashcan.jpg"], ["Dumpster", "dumpster.jpg"], ["Landfill", "landfill.jpg"]], 'Courier Flap Packs' => [["Garbage Fire", "fire.jpg"], ["Garbage Burner", "burner.jpg"], ["Garbage Incinerator", "incinerator.jpg"], ["Garbage Inferno", "inferno.jpg"]], 'Rolltop Courier Packs' => [["Garbage Disposal", "disposal.jpg"], ["Garbage Truck", "truck.jpg"], ["Garbage Barge", "barge.jpg"], ["Garbage Vortex", "vortex.jpg"]], 'Bike Travel Box' => [["Space Junk", "spacejunk.jpg"]], 'Hip Packs' => [["Wastebasket", "wastebasket.jpg"], ["Wastebasket II", "wastebasket2.jpg"], ["Waste Bin", "wastebin.jpg"], ["Tin Bin", "wastebin.jpg"]]}, "Apparel" => {'Hats' => [["Garbage Lid", "hat.jpg"]], 'Gloves' => [["Garbage Picker Mittens", "mitten.jpg"], ["Garbage Picker Lobster", "glove1.jpg"]], 'Facemasks' => [["Garbage Mask", "facemask.jpg"]], 'Wallets' => [["Cash Stash", "wallets.jpg"]]}, "Utility" => {'Drink Coozies' => [["Tall Boy Coozie", "tallboy.jpg"]], 'Belt Accessories' => [["Smart Phone Holster", "phone.jpg"], ["U-Lock Belt", "ulockbelt.jpg"]], 'Bike Accessories' => [["Top-Tube Pads", "tubetoppads.jpg"]], 'Bag Accessories' => [["Compactor", "compactor.jpg"]] } }
+product_hash = { "Bags" => {'Messenger Bags' => [["Trash Can", "trashcan.jpg"], ["Dumpster", "dumpster.jpg"], ["Landfill", "landfill.jpg"]], 'Courier Flap Packs' => [["Garbage Fire", "fire.jpg"], ["Garbage Burner", "burner.jpg"], ["Garbage Incinerator", "incinerator.jpg"], ["Garbage Inferno", "inferno.jpg"]], 'Rolltop Courier Packs' => [["Garbage Disposal", "disposal.jpg"], ["Garbage Truck", "truck.jpg"], ["Garbage Barge", "barge.jpg"], ["Garbage Vortex", "vortex.jpg"]], 'Bike Travel Box' => [["Space Junk", "spacejunk.jpg"]], 'Hip Packs' => [["Wastebasket", "wastebasket.jpg"], ["Wastebasket II", "wastebasket2.jpg"], ["Waste Bin", "wastebin.jpg"], ["Tin Bin", "wastebin.jpg"]]}, "Apparel" => {'Hats' => [["Garbage Lid", "hat.jpg"]], 'Gloves' => [["Garbage Picker Mittens", "mitten.jpg"], ["Garbage Picker Lobster", "glove1.jpg"]], 'Facemasks' => [["Garbage Mask", "facemask.jpg"]], 'Wallets' => [["Cash Stash", "wallets.jpg"]]}, "Utility" => {'Drink Coozies' => [["Tall Boy Coozie", "tallboy.jpg"]], 'Belt Accessories' => [["Smart Phone Holster", "phone.jpg"], ["U-Lock Belt", "ulockbelt.jpg"]], 'Bike Accessories' => [["Top-Tube Pads", "tubetoppads.jpg"]], 'Bag Accessories' => [["Compactor", "compactor.jpg"]] } }
 
 image_paths = Array.new(16).map.with_index { |x, i| Rails.root.join("db", "imageseed", "bag#{i + 1}.jpg") }
 
-category.each do |key, category|
-	category.each do |cat, model|
-		ProductCategory.create(name: cat, desc: Forgery(:trash).sentence, category: key)
-		model.each do |mod|
-			Product.create( name: mod[0], desc: Forgery(:trash).sentence, price: Random.rand(300), product_category: ProductCategory.find_by(name: cat), images_attributes: [title: mod[0], image_data: File.open( Rails.root.join("db", "imageseed", "#{mod[1]}") ) ] )
+product_hash.each do |category, types|
+	types.each do |type, models|
+		ProductType.create(name: type, desc: Forgery(:trash).sentence, category: category)
+		models.each do |model|
+			Product.create( name: model[0], desc: Forgery(:trash).sentence, price: Random.rand(300), product_type: ProductType.find_by(name: type), images_attributes: [title: model[0], image_data: File.open( Rails.root.join("db", "imageseed", "#{model[1]}") ) ] )
 		end 
 	end	
 end

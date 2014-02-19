@@ -8,8 +8,8 @@ class ProductTable < TableCloth::Base
   # column :name do |object|
   #   object.downcase
   # end
-  column :product_category do |object|
-    "#{object.product_category.name} / #{object.product_category.category}"
+  column :product_type do |object|
+    "#{object.product_type.name} / #{object.product_type.category}"
   end
 
   column :images, using: ThumbnailColumn

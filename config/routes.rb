@@ -14,7 +14,7 @@ Trashmessengerbags::Application.routes.draw do
 
   resources :custom_items 
 
-  resources :product_categories
+  resources :product_types
   
   resources :admins
   

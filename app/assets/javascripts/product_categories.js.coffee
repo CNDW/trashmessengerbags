@@ -5,4 +5,4 @@
 $(document).on "click", ".add_category", ->
 	category=prompt('Enter the category name', '')
 	if category
-		$(".new_product_category #product_category_category").append("<option value='" + category + "'>" + category + "</option>")
+		$(".new_product_category #product_type_category").append("<option value='" + category + "'>" + category + "</option>")

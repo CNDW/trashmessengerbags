@@ -1,4 +1,4 @@
-class ProductCategory < ActiveRecord::Base
+class ProductType < ActiveRecord::Base
   has_many :custom_items, autosave: true, dependent: :nullify
   has_many :products, autosave: true, dependent: :destroy
   validates :name, presence: true, uniqueness: true, format: /\A[\sa-z0-9]+\Z/i
@@ -6,7 +6,7 @@ class ProductCategory < ActiveRecord::Base
   validates :desc, format: /\A[\sa-z0-9,.?!@#$%^&*_-]+\Z/i
   
   def self.categories
-    ProductCategory.all.map { |product| product.category }.uniq
+    ProductType.all.map { |product| product.category }.uniq
   end
 
   def product_list
@@ -15,7 +15,7 @@ class ProductCategory < ActiveRecord::Base
 
   def self.by_category #returns a hash of ProductCategory collections, sorted by categorization
     cats = {}
-    ProductCategory.categories.each { |cat| cats.store(cat, ProductCategory.where(category: cat)) }
+    ProductType.categories.each { |cat| cats.store(cat, ProductType.where(category: cat)) }
     return cats
   end
 
