@@ -23,7 +23,7 @@ class ProductsController < SecureController
 	#PATCH/PUT
 	def update
     #@product.attributes = {'product_option_ids' => []}.merge(params[:product] || {})
-    @product.attributes = {'images_attributes' => {'gallery_ids' => []}}.merge(params[:product])
+    #@product.attributes = {'images_attributes' => {'gallery_ids' => []}}.merge(params[:product])
 
     respond_to do |format|
       if @product.update(product_params)

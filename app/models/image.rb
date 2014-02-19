@@ -4,10 +4,11 @@ class Image < ActiveRecord::Base
 	has_many :products, through: :gallery_indices, source: :gallery_indexable, source_type: "Product", autosave: true
 	mount_uploader :image_data, ImageUploader
 
-
   accepts_nested_attributes_for :galleries, reject_if: :all_blank, allow_destroy: true
 
-  def thumb
+  validates :image_data, presence: true
+
+  def thumbnail
   	self.image_data_url(:thumb)
   end
 

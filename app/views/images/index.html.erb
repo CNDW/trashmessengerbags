@@ -6,48 +6,8 @@
 <br />
 <%= link_to "New Image", new_image_path, class: "btn btn-primary" %>
 <br />
-<br />
-<table class="table table-bordered table-striped">
-	<thread>
-		<tr>
-			<th>Title</th>
-			<th>Thumbnail</th>
-			<th>Download Link</th>
-			<th>&nbsp;</th>
-		</tr>
-	</thread>
-	<tbody>
-		<% @images.each do |image| %>
-			<tr>
-				<td><%= image.title %></td>
-				<td><%= image_tag image.image_data_url(:thumb).to_s, class: "thumb" %></td>
-				<td><%= link_to "Download Image", image.image_data_url %></td>
-				<td class="btn-group btn-group-md">
-					<%= link_to "Delete", image, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you wish to delete #{image.title}?" } %>
-					<%= link_to "Edit", edit_image_path(image), class: "btn btn-primary" %>
-				</td>
-
-			</tr>
-		<% end %>
-	</tbody>
-</table>
-<table class="table table-bordered table-striped">
-	<thread>
-		<tr>
-			<th>gallery title</th>
-			<th>gallery list</th>
-		</tr>
-	</thread>
-	<tbody>
-		<% @galleries.each do |gallery| %>
-			<tr>
-				<td><%= gallery.title %></td>
-				<td>
-					<% gallery.images.each do |image| %>
-						<%= image_tag image.image_data_url(:thumb).to_s, class: "thumb" %>
-					<% end %>
-				</td>
-			</tr>
-		<% end %>
-	</tbody>
-</table>
+<%= simple_table_for @images, with: ImageTable %>
+<%= simple_table_for @galleries do |table| %>
+	<% table.column :title %>
+	<% table.column :images, using: ThumbnailColumn %>
+<% end %>

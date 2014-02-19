@@ -1,7 +1,7 @@
 class Product < ActiveRecord::Base
-  has_many :gallery_indices, as: :gallery_indexable, dependent: :destroy, autosave: true
-  has_many :images, through: :gallery_indices, autosave: true
-  has_many :galleries, through: :gallery_indices, autosave: true
+  has_many :gallery_indices, as: :gallery_indexable, dependent: :destroy
+  has_many :images, through: :gallery_indices, dependent: :destroy
+  has_many :galleries, through: :gallery_indices, dependent: :destroy
   has_many :custom_items, autosave: true, dependent: :nullify
   has_many :options, as: :optionable, dependent: :destroy
   has_many :sizes, through: :options, autosave: true
@@ -10,7 +10,7 @@ class Product < ActiveRecord::Base
   belongs_to :product_category, autosave: true
   validates :name, presence: true, uniqueness: true
 
-  accepts_nested_attributes_for :images, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :images, allow_destroy: true, :reject_if => proc{ |attr| attr[:image_data].nil? }
 
 
   def option_list#need to update for new option structure

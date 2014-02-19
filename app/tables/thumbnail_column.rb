@@ -7,8 +7,8 @@ class ThumbnailColumn < TableCloth::Column
 	end
 
 	def thumbs(object, view)
-		value = object.images.map { |img| view.image_tag(img.thumb) }.join if object.images
-		value = view.image_tag(object.thumb) if object.is_a?(Image)
+		value = object.images.map { |img| view.image_tag(img.thumbnail, class: "thumb") }.join if object.respond_to?(:images)
+		value = view.image_tag(object.thumbnail) if object.is_a?(Image)
 		return value
 	end
 end
