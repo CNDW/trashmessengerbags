@@ -1,0 +1,14 @@
+<h1>Listing options</h1>
+
+<%= form_tag new_option_path, method: :get do %>
+	<%= select_tag :option_type_id, options_from_collection_for_select(OptionType.all, :id, :name) %>
+	<%= submit_tag "New Option", name: nil, class: "btn btn-primary" %>
+<% end %>
+
+<%= simple_table_for @options do |table| %>
+  <% table.column :name %>
+  <% table.column :id %>
+<% end %>
+
+<br>
+

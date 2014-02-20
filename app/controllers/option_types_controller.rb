@@ -1,4 +1,4 @@
-class OptionTypesController < ApplicationController
+class OptionTypesController < SecureController
   before_action :set_option_type, only: [:show, :edit, :update, :destroy]
 
   # GET /option_types
@@ -28,7 +28,7 @@ class OptionTypesController < ApplicationController
 
     respond_to do |format|
       if @option_type.save
-        format.html { redirect_to @option_type, notice: 'Option type was successfully created.' }
+        format.html { redirect_to option_types_url, notice: 'Option type was successfully created.' }
         format.json { render action: 'show', status: :created, location: @option_type }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class OptionTypesController < ApplicationController
   def update
     respond_to do |format|
       if @option_type.update(option_type_params)
-        format.html { redirect_to @option_type, notice: 'Option type was successfully updated.' }
+        format.html { redirect_to option_types_url, notice: 'Option type was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -69,6 +69,6 @@ class OptionTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def option_type_params
-      params.require(:option_type).permit(:name)
+      params.require(:option_type).permit(:name, fields_attributes: [:name, :product_type_id, :field_type, :required, :_destroy, :id])
     end
 end

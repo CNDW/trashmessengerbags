@@ -1,28 +1,28 @@
 class ProductTypesController < SecureController
   before_action :set_product_type, only: [:show, :edit, :update, :destroy]
 
-  # GET /product_categories
-  # GET /product_categories.json
+  # GET /product_types
+  # GET /product_types.json
   def index
     @product_types = ProductType.all
   end
 
-  # GET /product_categories/1
-  # GET /product_categories/1.json
+  # GET /product_types/1
+  # GET /product_types/1.json
   def show
   end
 
-  # GET /product_categories/new
+  # GET /product_types/new
   def new
     @product_type = ProductType.new
   end
 
-  # GET /product_categories/1/edit
+  # GET /product_types/1/edit
   def edit
   end
 
-  # POST /product_categories
-  # POST /product_categories.json
+  # POST /product_types
+  # POST /product_types.json
   def create
     @product_type = ProductType.new(product_type_params)
 
@@ -37,8 +37,8 @@ class ProductTypesController < SecureController
     end
   end
 
-  # PATCH/PUT /product_categories/1
-  # PATCH/PUT /product_categories/1.json
+  # PATCH/PUT /product_types/1
+  # PATCH/PUT /product_types/1.json
   def update
     respond_to do |format|
       if @product_type.update(product_type_params)
@@ -51,8 +51,8 @@ class ProductTypesController < SecureController
     end
   end
 
-  # DELETE /product_categories/1
-  # DELETE /product_categories/1.json
+  # DELETE /product_types/1
+  # DELETE /product_types/1.json
   def destroy
     @product_type.destroy
     respond_to do |format|

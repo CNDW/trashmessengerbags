@@ -66,7 +66,7 @@ class ProductsController < SecureController
 		end
 
 		def product_params
-      params.require(:product).permit(:name, :price, :desc, :product_type_id, images_attributes: [:title, :image_data, :_destroy, :id, gallery_ids: [] ] ).tap do |whitelist|
+      params.require(:product).permit(:name, :price, :desc, :product_type_id, images_attributes: [:title, :image_data, :_destroy, :id, gallery_ids: []]).tap do |whitelist|
         whitelist[:properties] = params[:product][:properties]
       end
     end

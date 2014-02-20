@@ -1,7 +1,7 @@
 <h1>Products</h1>
 <br />
 <%= form_tag new_product_path, method: :get do %>
-	<%= select_tag :product_type_id, options_from_collection_for_select(ProductType.all, :id, :name, { include_blank: 'Please Select Product Type' } ) %>
+	<%= select_tag :product_type_id, options_from_collection_for_select(ProductType.all, :id, :name) %>
 	<%= submit_tag "New Product", name: nil, class: "btn btn-primary" %>
 <% end %>
 <br />
