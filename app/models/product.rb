@@ -2,16 +2,16 @@ class Product < ActiveRecord::Base
   has_many :gallery_indices, as: :gallery_indexable, dependent: :destroy
   has_many :images, through: :gallery_indices, dependent: :destroy
   has_many :galleries, through: :gallery_indices, dependent: :destroy
+  has_many :customizers, as: :customizable, dependent: :destroy
+  has_many :options, through: :customizers, dependent: :destroy
   has_many :custom_items, autosave: true, dependent: :nullify
-  has_many :options, as: :optionable, dependent: :destroy
-  has_many :sizes, through: :options, autosave: true
-  has_many :colors, through: :options, autosave: true
-  has_many :extras, through: :options, autosave: true
+
   belongs_to :product_type, autosave: true
+  
   validates :name, presence: true, uniqueness: true
+  validate :validate_properties
 
   store_accessor :properties
-  validate :validate_properties
 
   accepts_nested_attributes_for :images, allow_destroy: true, :reject_if => proc{ |attr| attr[:image_data].nil? }
 
@@ -22,7 +22,7 @@ class Product < ActiveRecord::Base
       end
     end
   end
-  
+
   def option_list#need to update for new option structure
   end
 

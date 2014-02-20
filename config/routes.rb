@@ -1,4 +1,6 @@
 Trashmessengerbags::Application.routes.draw do
+  resources :option_types
+
   get "store/catalogue"
   get "store/premade"
   get "store/custom"
