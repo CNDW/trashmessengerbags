@@ -24,7 +24,7 @@
     <%= f.text_field :desc %>
   </div>
   <div class="field">
-    <%= f.collection_select( :product_type_id, ProductType.all, :id, :name, { include_blank: 'Type' } ) %>
+    <%= f.collection_select( :product_type_id, ProductType.all, :id, :name, { include_blank: 'Please Select' } ) %>
     <%= link_to "New Product Type", new_product_type_path %>
   </div>
   <div class="field">

@@ -23,6 +23,12 @@
     <%= f.select(:category, ProductType.categories, { include_blank: '' }) %>
     <button class="add_category" type="button">Add a new category</button>
   </div>
+
+  <%= f.fields_for :fields do |builder| %>
+    <%= render 'field_fields', f: builder %>
+  <% end %>
+  <%= link_to_add_fields "Add Field", f, :fields %>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
