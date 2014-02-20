@@ -10,9 +10,19 @@ class Product < ActiveRecord::Base
   belongs_to :product_type, autosave: true
   validates :name, presence: true, uniqueness: true
 
+  store_accessor :properties
+  validate :validate_properties
+
   accepts_nested_attributes_for :images, allow_destroy: true, :reject_if => proc{ |attr| attr[:image_data].nil? }
 
-
+  def validate_properties
+    product_type.fields.each do |field|
+      if field.required? && properties[field.name].blank?
+        errors.add field.name, "must not be blank"
+      end
+    end
+  end
+  
   def option_list#need to update for new option structure
   end
 

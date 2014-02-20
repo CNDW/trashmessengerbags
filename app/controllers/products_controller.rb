@@ -9,7 +9,7 @@ class ProductsController < SecureController
 
   #GET
 	def new
-		@product = Product.new
+		@product = Product.new(product_type_id: params[:product_type_id])
 	end
 
   #GET
@@ -66,7 +66,9 @@ class ProductsController < SecureController
 		end
 
 		def product_params
-      params.require(:product).permit(:name, :price, :desc, :product_type_id, images_attributes: [:title, :image_data, :_destroy, :id, gallery_ids: [] ] )
+      params.require(:product).permit(:name, :price, :desc, :product_type_id, images_attributes: [:title, :image_data, :_destroy, :id, gallery_ids: [] ] ).tap do |whitelist|
+        whitelist[:properties] = params[:product][:properties]
+      end
     end
 
 end

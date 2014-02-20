@@ -11,6 +11,9 @@
     </div>
   <% end %>
 
+  <%= f.hidden_field :product_type_id %>
+  <h2><%= @product.product_type.name.singularize %></h2>
+
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -23,10 +26,13 @@
     <%= f.label :desc %><br>
     <%= f.text_field :desc %>
   </div>
-  <div class="field">
-    <%= f.collection_select( :product_type_id, ProductType.all, :id, :name, { include_blank: 'Please Select' } ) %>
-    <%= link_to "New Product Type", new_product_type_path %>
-  </div>
+
+  <%= f.fields_for :properties, OpenStruct.new(@product.properties) do |builder| %>
+    <% @product.product_type.fields.each do |field| %>
+      <%= render "products/fields/#{field.field_type}", field: field, f: builder %>
+    <% end %>
+  <% end %>
+
   <div class="field">
     Images for this product<br>
     <%= f.fields_for :images, :html => { multipart: true } do |ff| %>
