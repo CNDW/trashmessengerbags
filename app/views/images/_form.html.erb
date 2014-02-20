@@ -12,11 +12,11 @@
   <%= form_for @image, html: { multipart: true } do |f| %>
 
     <div class="field">
-      <%= f.label :name %><br>
+      <%= f.label :name %>
       <%= f.text_field :name %><br>
-      <%= f.label :desc %><br>
+      <%= f.label :desc %>
       <%= f.text_field :desc %><br>
-      <%= f.label :title %><br>
+      <%= f.label :title %>
       <%= f.text_field :title %><br>
       <% if f.object.new_record? %>
         <%= f.label :image_data %><br>

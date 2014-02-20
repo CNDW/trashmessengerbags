@@ -15,15 +15,15 @@
   <h2><%= @product.product_type.name.singularize %></h2>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :price %><br>
+    <%= f.label :price %>
     <%= f.text_field :price %>
   </div>
   <div class="field">
-    <%= f.label :desc %><br>
+    <%= f.label :desc %>
     <%= f.text_field :desc %>
   </div>
 
@@ -37,7 +37,7 @@
     Images for this product<br>
     <%= f.fields_for :images, :html => { multipart: true } do |ff| %>
       <%= ff.label :title %>
-      <%= ff.text_field :title %><br>
+      <%= ff.text_field :title %>
       <% if ff.object.new_record? %>
         <%= ff.label :image_data %>
         <%= ff.file_field :image_data %><br>

@@ -1,10 +1,15 @@
-<h1>Option Categories</h1>
+<h1>Option Types</h1>
 
-<%= simple_table_for @option_types do |table| %>
-  <% table.column :name %>
-  <% table.column :id %>
+<%= link_to 'New Option Type', new_option_type_path, class: "btn btn-primary" %>
+
+<%= simple_table_for @option_types do |t| %>
+  <% t.column :name %>
+  <% t.column :id %>
+  <% t.actions do %>
+    <% action {|option_type| link_to "Edit", edit_option_type_path(option_type),class: "btn btn-primary"} %>
+    <% action {|option_type| link_to "Delete", option_type, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you wish to delete #{option_type.name}?" }} %>
+  <% end %>
 <% end %>
 
 <br>
 
-<%= link_to 'New Option type', new_option_type_path %>

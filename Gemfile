@@ -44,7 +44,7 @@ gem 'gon', '~> 5.0.1'
 # Use forgery for seed data creation
 gem 'forgery', '~> 0.5.0'
 # Use tablecloth for view table creation
-gem 'table_cloth', '~> 0.4.0'
+gem 'table_cloth', :github => "bobbytables/table_cloth"
 # Use Draper for view models aka decorators
 gem 'draper', '~> 1.3'
 
