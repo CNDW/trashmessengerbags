@@ -21,7 +21,8 @@ $(document).on "click", "form .add_fields", (event) ->
 $(document).on "click", ".option-type-selectall", ->
 	$(".option-" + $(this).attr('id')).prop('checked', this.checked)
 
-$(document).on "click", "#option_checkbox", ->
-	checkboxes = "." + $(this).attr('class')
+$(document).on "click", ".option-checkboxes", ->
+	checkboxes = "." + $(this).attr('class').split(" ")[1]
+	selectall = "#" + checkboxes.split('-')[1] + ".option-type-selectall"
 	check = ($(checkboxes + ":checked").length == $(checkboxes).length)
-	$("#" + checkboxes.substr(-1) + ".option-type-selectall").prop('checked', check)
+	$(selectall).prop('checked', check)

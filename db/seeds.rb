@@ -26,7 +26,7 @@ options_hash.each do |type, options|
 	OptionType.create(name: type)
 	options.each do |option|
 		Option.create( name: option[0], price: Random.rand(300), option_type: OptionType.find_by(name: type) )
-		Image.create( title: option[0], image_data: File.open( Rails.root.join("db", "imageseed", "colors", "#{option[1]}") ) ) if option.length > 1
+		Image.create( title: option[0], image_data: File.open( Rails.root.join("db", "imageseed", "colors", "#{option[1]}") ), options: [Option.find_by(name: option[0])] ) if option.length > 1
 	end
 end
 

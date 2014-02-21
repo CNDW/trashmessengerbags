@@ -35,7 +35,7 @@
 
   <% OptionType.all.each do |type| %> 
     <%= type.name.singularize %><input class="option-type-selectall" id="<%=type.id%>" type="checkbox"><br>
-    <%= f.collection_check_boxes(:option_ids, type.options, :id, :name, options = {"checked" => :option_ids}, html = { id: "option_checkbox", class: "option-".concat(type.id.to_s) }) %><br>
+    <%= f.collection_check_boxes(:option_ids, type.options, :id, :name, options = {"checked" => :option_ids}, html = { class: "option-checkboxes option-".concat(type.id.to_s) }) %><br>
   <% end %>
 
   <div class="field">
