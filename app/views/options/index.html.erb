@@ -5,13 +5,17 @@
 	<%= submit_tag "New Option", name: nil, class: "btn btn-primary" %>
 <% end %>
 
-<%= simple_table_for @options do |t| %>
-  <% t.column :name %>
-  <% t.column :id %>
-  <% t.actions do %>
-    <% action {|option| link_to "Edit", edit_option_path(option),class: "btn btn-primary"} %>
-    <% action {|option| link_to "Delete", option, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you wish to delete #{option.name}?" }} %>
-  <% end %>
+<% OptionType.all.each do |type| %>
+	<%= simple_table_for type.options do |t| %>
+	  <% t.column :name %>
+	  <% t.column :option_type do |obj| %>
+	  	<% obj.option_type.name.singularize %>
+	  <% end %>
+	  <% t.actions do %>
+	    <% action {|option| link_to "Edit", edit_option_path(option),class: "btn btn-primary"} %>
+	    <% action {|option| link_to "Delete", option, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you wish to delete #{option.name}?" }} %>
+	  <% end %>
+	<% end %>
 <% end %>
 
 <br>

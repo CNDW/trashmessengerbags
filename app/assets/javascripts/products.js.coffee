@@ -17,3 +17,11 @@ $(document).on "click", "form .add_fields", (event) ->
 	regexp = new RegExp($(this).data('id'), 'g')
 	$(this).before($(this).data('fields').replace(regexp, time))
 	event.preventDefault()
+
+$(document).on "click", ".option-type-selectall", ->
+	$(".option-" + $(this).attr('id')).prop('checked', this.checked)
+
+$(document).on "click", "#option_checkbox", ->
+	checkboxes = "." + $(this).attr('class')
+	check = ($(checkboxes + ":checked").length == $(checkboxes).length)
+	$("#" + checkboxes.substr(-1) + ".option-type-selectall").prop('checked', check)

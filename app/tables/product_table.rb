@@ -1,24 +1,12 @@
 class ProductTable < TableCloth::Base
-  include TableCloth::Extensions::Actions
   # Define columns with the #column method
   # column :name, :email
-  column :name, :price, :desc
+  
   # Columns can be provided a block
   #
   # column :name do |object|
   #   object.downcase
   # end
-  column :product_type do |object|
-    "#{object.product_type.name} / #{object.product_type.category}"
-  end
-
-  column :images, using: ThumbnailColumn
-
-  actions do
-    action {|object| link_to "Edit", edit_product_path(object),class: "btn btn-primary"}
-    action {|object| link_to "Delete", object, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you wish to delete #{object.name}?" }}
-  end
-
 
   # Columns can also have conditionals if you want.
   # The conditions are checked against the table's methods.
@@ -42,4 +30,17 @@ class ProductTable < TableCloth::Base
   # end
   #
   # If action provides an "if:" option, it will call that method on the object. It can also take a block with an arity of 1.
+
+  column :name, :price, :desc
+  column :product_type do |object|
+    "#{object.product_type.name} / #{object.product_type.category}"
+  end
+
+  column :images, using: ThumbnailColumn
+
+  actions do
+    action {|object| link_to "Edit", edit_product_path(object),class: "btn btn-primary"}
+    action {|object| link_to "Delete", object, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you wish to delete #{object.name}?" }}
+  end
+
 end

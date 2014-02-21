@@ -12,6 +12,7 @@
   <% end %>
 
   <%= f.hidden_field :option_type_id %>
+  <h2><%= @option.option_type.name.singularize %></h2>
 
   <div class="field">
     <%= f.label :name %>
