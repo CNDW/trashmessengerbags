@@ -39,8 +39,8 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # Use unicorn as the app server
 gem 'unicorn', '~> 4.8.2'
 
-# Use gon to pass controller variables to javascript
-gem 'gon', '~> 5.0.1'
+# Use wicked for wizard forms
+gem 'wicked'
 # Use forgery for seed data creation
 gem 'forgery', '~> 0.5.0'
 # Use tablecloth for view table creation

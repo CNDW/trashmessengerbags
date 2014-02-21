@@ -4,7 +4,6 @@ Trashmessengerbags::Application.routes.draw do
 
   get "store/catalogue"
   get "store/premade"
-  get "store/custom"
   resources :images
   
   match '/home', to: 'home_pages#home', via: 'get'
@@ -15,7 +14,8 @@ Trashmessengerbags::Application.routes.draw do
   match '/about', to: 'home_pages#about', via: 'get'
   match '/contact', to: 'home_pages#contact', via: 'get'
 
-  resources :custom_items 
+  resources :custom_items
+  resources :custom_item_steps
 
   resources :product_types
   

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140220201858) do
+ActiveRecord::Schema.define(version: 20140221204652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20140220201858) do
     t.integer  "product_type_id"
     t.integer  "product_id"
     t.string   "category"
+    t.hstore   "properties"
   end
 
   create_table "customizers", force: true do |t|

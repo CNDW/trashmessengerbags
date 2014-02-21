@@ -5,6 +5,7 @@ class CustomItemsController < ApplicationController
   # GET /custom_items.json
   def index
     @custom_items = CustomItem.all
+    redirect_to new_custom_item_path
   end
 
   # GET /custom_items/1
@@ -14,8 +15,8 @@ class CustomItemsController < ApplicationController
 
   # GET /custom_items/new
   def new
-    gon.categories = CustomItem.category_listing
-    gon.products = CustomItem.product_listing
+    #gon.categories = CustomItem.category_listing
+    #gon.products = CustomItem.product_listing
     @custom_item = CustomItem.new
   end
 
@@ -30,12 +31,11 @@ class CustomItemsController < ApplicationController
 
     respond_to do |format|
       if @custom_item.save
-        format.html { redirect_to custom_items_url, notice: 'Custom item was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @custom_item }
+        format.html { redirect_to custom_item_steps_path }
+        cookies[:current_custom_item] = @custom_item.id
       else
-        format.js
         format.html { render action: 'new' }
-        format.json { render json: @custom_items.errors, status: :unprocessable_entity }
+        cookies.delete(:current_custom_item)
       end
     end
   end
@@ -75,6 +75,6 @@ class CustomItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def custom_item_params
-      params.require(:custom_item).permit(:product_category_id, :category, :product_id)
+      params.require(:custom_item).permit(:product_type_id, :category, :product_id)
     end
 end
