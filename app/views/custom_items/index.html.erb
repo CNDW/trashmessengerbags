@@ -1,32 +1,13 @@
-<h1>Listing custom_items</h1>
+<br />
+<%= link_to "New Custom Item", new_custom_item_path, class: "btn btn-primary" %>
+<br />
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>id</th>
-      <th>category</th>
-      <th>sub category</th>
-      <th>product</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody><% @custom_items.each do |custom_item| %>
-      <tr>
-        <td><%= custom_item.name %></td>
-        <td><%= custom_item.id %></td>
-        <td><%= custom_item.category%></td>
-        <td><%= custom_item.product_type.name %></td>
-        <td><%= custom_item.product.name %></td>
-        <td><%= link_to 'Show', custom_item %></td>
-        <td><%= link_to 'Destroy', custom_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-      <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Custom item', new_custom_item_path %>
+<%= simple_table_for @custom_items do |t| %>
+  <% t.column :category %>
+  <% t.column :type %>
+  <% t.column :name %>
+  <% t.actions do %>
+    <% action {|custom_item| link_to "Edit", edit_custom_item_path(custom_item),class: "btn btn-primary"} %>
+    <% action {|custom_item| link_to "Delete", custom_item, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you wish to delete #{custom_item.category}?" }} %>
+  <% end %>
+<% end %>

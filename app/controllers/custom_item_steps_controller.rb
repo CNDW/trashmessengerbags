@@ -19,6 +19,6 @@ class CustomItemStepsController < ApplicationController
 		end
 
 		def custom_item_params
-      params.require(:custom_item).permit(:product_type_id, :category, :product_id)
+      params.require(:custom_item).permit(:product_type_id, :category, :product_id, option_ids: [])
     end
 end

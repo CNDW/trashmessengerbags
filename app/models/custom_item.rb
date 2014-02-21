@@ -1,13 +1,17 @@
 class CustomItem < ActiveRecord::Base
   has_many :customizers, as: :customizable, dependent: :destroy
   has_many :options, through: :customizers, dependent: :destroy
-  belongs_to :product
+  belongs_to :product, autosave: true
+  belongs_to :product_type, autosave: true
 
-  def self.type_listing
-  	ProductType.all.map { |cat| [cat.id, cat.category] }
+  def type
+  	return "none" if self.product_type.nil?
+  	self.product_type.name
   end
 
-  def self.product_listing
-  	Product.all.map { |product| [product.id, product.product_type_id, 1] }#need to change 1 for updated options
-  end 
+  def name
+  	return "none" if self.product.nil?
+  	self.product.name
+  end
+
 end

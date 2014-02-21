@@ -14,7 +14,7 @@
     
 		<div class="model" >
       Select a product model.<br>
-      <%= collection_radio_buttons(:custom_item, :product_id, Product.all, :id, :name) %>
+      <%= collection_radio_buttons(:custom_item, :product_id, Product.where(product_type_id: @custom_item.product_type_id), :id, :name) %>
     </div>
 
   

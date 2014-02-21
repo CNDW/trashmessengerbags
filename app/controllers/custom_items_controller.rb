@@ -5,7 +5,6 @@ class CustomItemsController < ApplicationController
   # GET /custom_items.json
   def index
     @custom_items = CustomItem.all
-    redirect_to new_custom_item_path
   end
 
   # GET /custom_items/1
@@ -15,8 +14,6 @@ class CustomItemsController < ApplicationController
 
   # GET /custom_items/new
   def new
-    #gon.categories = CustomItem.category_listing
-    #gon.products = CustomItem.product_listing
     @custom_item = CustomItem.new
   end
 

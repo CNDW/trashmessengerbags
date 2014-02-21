@@ -1,1 +1,24 @@
-options.html.erb
+<%= form_for @custom_item, url: wizard_path do |f| %>
+  <% if @custom_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@custom_item.errors.count, "error") %> prohibited this custom_item from being saved:</h2>
+
+      <ul>
+      <% @custom_item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="custom_products">
+    
+		<div class="options" >
+      Select custom options<br>
+      <%= f.collection_check_boxes(:option_ids, @custom_item.product.options, :id, :name, options = {"checked" => :option_ids}) %>
+    </div>
+  
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </div>
+<% end %>
