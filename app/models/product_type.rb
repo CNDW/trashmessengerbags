@@ -15,24 +15,17 @@ class ProductType < ActiveRecord::Base
     @categories ||= ProductType.distinct.pluck(:category)
   end
 
-  def categories
-    ProductType.categories
-  end
-
-  def self.by_categories
+  #returns a hash of ProductType collections sorted by their category field, includes products and images on query to minimize hit to db
+  def self.by_categories 
     types = {}
-    ProductType.includes(:products, :images).find_each { |object| types.merge!({ object.category => [object] }) { |key, oldval, newval| oldval.concat(newval) } }
+    ProductType.includes(:products, :images).find_each {|object| types.merge!({ object.category => [object] }) {|key, oldval, newval| oldval.concat(newval)}}
     return types
   end
 
   def type
     self.name
   end
-
-  def gallery
-    Gallery.find_by(name: self.name)
-  end
-
+  
   def type_images
     self.images
   end

@@ -16,8 +16,10 @@ module SessionsHelper
   	@current_admin ||= Admin.find_by(remember_token: remember_token)
   end
 
+  #don't even check if the remember token doesn't exist to save on db hit
   def signed_in?
-  	!current_admin.nil?
+  	return !current_admin.nil? if cookies[:remember_token] 
+    false
   end
 
   def sign_out
