@@ -24,8 +24,6 @@ Trashmessengerbags::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   match '/adminsignin', to: 'sessions#new', via: 'get'
   match '/adminsignout', to: 'sessions#destroy', via: 'delete'
-  
-  resources :users
 
   resources :products
   

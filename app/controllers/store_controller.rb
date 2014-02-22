@@ -1,6 +1,7 @@
 class StoreController < ApplicationController
   def catalogue
-  	@products = ProductType.by_category
+  	@products = ProductType.includes(products: [:images, :galleries])
+  	@categories = ProductType.distinct.pluck(:category)
   end
 
   def premade

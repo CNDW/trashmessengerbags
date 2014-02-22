@@ -19,12 +19,6 @@ class ProductType < ActiveRecord::Base
     self.name
   end
 
-  def self.by_category #returns a hash of ProductCategory collections, sorted by categorization
-    cats = {}
-    ProductType.categories.each { |cat| cats.store(cat, ProductType.where(category: cat)) }
-    return cats
-  end
-
   def gallery
     Gallery.find_by(name: self.name)
   end

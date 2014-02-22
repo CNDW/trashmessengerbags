@@ -1,13 +1,13 @@
 <div class="panel-group store-sidebar">
 	<div class="panel panel-default btn-toolbar" role="toolbar">
-		<% @products.each do |section, categories| %>
+		<% @categories.each do |section| %>
 			<div class="panel-heading">
 				<%= section %>
 			</div>
 			<div>
 				<div class="btn-group store-sidebar-buttons">
 				
-					<% categories.each do |category| %>
+					<% @products.where(category: section).each do |category| %>
 						<button class="category-selector btn btn-primary" type="button" id="<%= category.id %>">
 							<%= category.name %>
 						</button><br>

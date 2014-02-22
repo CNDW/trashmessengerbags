@@ -15,6 +15,7 @@ class CustomItemsController < ApplicationController
   # GET /custom_items/new
   def new
     @custom_item = CustomItem.new
+    @categories = ProductType.distinct.pluck(:category)
   end
 
   # GET /custom_items/1/edit
