@@ -3,8 +3,8 @@ class Option < ActiveRecord::Base
 
   has_many :gallery_indices, as: :gallery_indexable, dependent: :destroy
   has_many :images, through: :gallery_indices, dependent: :destroy
-  has_many :galleries, through: :gallery_indices, dependent: :destroy
 	has_many :customizers, dependent: :destroy
+  has_many :products, through: :customizers, dependent: :destroy
   
   store_accessor :properties
   

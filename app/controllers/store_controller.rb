@@ -1,7 +1,8 @@
 class StoreController < ApplicationController
   def catalogue
-  	@products = ProductType.includes(products: [:images, :galleries])
-  	@categories = ProductType.distinct.pluck(:category)
+  	render locals: {
+  		products_by_category: ProductType.by_categories
+  	}
   end
 
   def premade
@@ -9,5 +10,9 @@ class StoreController < ApplicationController
 
   def custom
   end
-  
+
+  private
+  	def locals(values)
+  		render locals: values
+  	end
 end

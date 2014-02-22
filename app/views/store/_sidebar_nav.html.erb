@@ -1,15 +1,15 @@
 <div class="panel-group store-sidebar">
 	<div class="panel panel-default btn-toolbar" role="toolbar">
-		<% @categories.each do |section| %>
+		<% products_by_category.each do |category, types| %>
 			<div class="panel-heading">
-				<%= section %>
+				<%= category %>
 			</div>
 			<div>
 				<div class="btn-group store-sidebar-buttons">
 				
-					<% @products.where(category: section).each do |category| %>
-						<button class="category-selector btn btn-primary" type="button" id="<%= category.id %>">
-							<%= category.name %>
+					<% types.each do |type| %>
+						<button class="type-selector btn btn-primary" type="button" id="<%= type.id %>">
+							<%= type.name %>
 						</button><br>
 					<% end %>
 				

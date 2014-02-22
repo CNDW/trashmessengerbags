@@ -4,7 +4,7 @@ class ProductTypesController < SecureController
   # GET /product_types
   # GET /product_types.json
   def index
-    @product_types = ProductType.all
+    @product_types = ProductType.includes(:images, :gallery_indices, :products)
   end
 
   # GET /product_types/1

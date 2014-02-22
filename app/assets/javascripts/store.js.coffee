@@ -3,9 +3,9 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).ready ->
 	$(".store-item").hide()
-	$('.category-selector').first().click()
+	$('.type-selector').first().click()
 
-$(document).on "click", ".category-selector", (e)->
+$(document).on "click", ".type-selector", (e)->
 	e.preventDefault()
 	$(".store-item").hide()
-	$(".category-" + $(this).attr('id')).show()
+	$(".type-" + $(this).attr('id')).show()

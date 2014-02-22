@@ -1,7 +1,6 @@
 class Product < ActiveRecord::Base
   has_many :gallery_indices, as: :gallery_indexable, dependent: :destroy
   has_many :images, through: :gallery_indices, dependent: :destroy
-  has_many :galleries, through: :gallery_indices, dependent: :destroy
   has_many :customizers, as: :customizable, dependent: :destroy
   has_many :options, through: :customizers, dependent: :destroy
   has_many :custom_items, autosave: true, dependent: :nullify
@@ -15,7 +14,7 @@ class Product < ActiveRecord::Base
 
   accepts_nested_attributes_for :images, allow_destroy: true, :reject_if => proc{ |attr| attr[:image_data].nil? }
 
-  delegate :categories, :category, :type, :to => :product_type, :prefix => false
+  delegate :categories, :category, :type, :type_images, :to => :product_type, :prefix => false
 
   def validate_properties
     product_type.fields.each do |field|
