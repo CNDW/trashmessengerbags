@@ -1,16 +1,14 @@
 <h1>Listing options</h1>
 
 <%= form_tag new_option_path, method: :get do %>
-	<%= select_tag :option_type_id, options_from_collection_for_select(OptionType.all, :id, :name) %>
+	<%= select_tag :option_type_id, options_from_collection_for_select(@option_types, :id, :name) %>
 	<%= submit_tag "New Option", name: nil, class: "btn btn-primary" %>
 <% end %>
 
-<% OptionType.all.each do |type| %>
+<% @option_types.each do |type| %>
 	<%= simple_table_for type.options do |t| %>
 	  <% t.column :name %>
-	  <% t.column :option_type do |obj| %>
-	  	<% obj.option_type.name.singularize %>
-	  <% end %>
+	  <% t.column :type %>
 	  <% t.column :images, using: ThumbnailColumn %>
 	  <% t.actions do %>
 	    <% action {|option| link_to "Edit", edit_option_path(option),class: "btn btn-primary"} %>

@@ -33,7 +33,7 @@ class ProductTable < TableCloth::Base
 
   column :name, :price, :desc
   column :product_type do |object|
-    "#{object.product_type.name} / #{object.product_type.category}"
+    "#{object.type} / #{object.category}"
   end
 
   column :images, using: ThumbnailColumn

@@ -10,6 +10,8 @@ class Option < ActiveRecord::Base
   
   validate :validate_properties
 
+  delegate :type, to: :option_type, prefix: false
+
   def validate_properties
     option_type.fields.each do |field|
       if field.required? && properties[field.name].blank?

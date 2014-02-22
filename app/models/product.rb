@@ -15,6 +15,8 @@ class Product < ActiveRecord::Base
 
   accepts_nested_attributes_for :images, allow_destroy: true, :reject_if => proc{ |attr| attr[:image_data].nil? }
 
+  delegate :categories, :category, :type, :to => :product_type, :prefix => false
+
   def validate_properties
     product_type.fields.each do |field|
       if field.required? && properties[field.name].blank?
@@ -23,15 +25,8 @@ class Product < ActiveRecord::Base
     end
   end
 
-  def option_list#need to update for new option structure
-  end
-
   def thumbs
     self.images.map { |img| img.thumb }
-  end
-
-  def categorization
-    self.product_type.category
   end
 
   def catalogue_image

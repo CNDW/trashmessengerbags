@@ -4,7 +4,8 @@ class ProductsController < SecureController
 
 	#GET /products
 	def index
-		@products = Product.all
+		@products = Product.includes(:gallery_indices, :images, :product_type)
+    @product_types = ProductType.all
 	end
 
   #GET

@@ -4,7 +4,7 @@ class OptionsController < SecureController
   # GET /options
   # GET /options.json
   def index
-    @options = Option.all
+    @option_types = OptionType.includes(options: [:images, :option_type])
   end
 
   # GET /options/1

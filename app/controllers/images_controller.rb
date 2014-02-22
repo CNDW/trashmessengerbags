@@ -2,7 +2,7 @@ class ImagesController < SecureController
   before_action :set_image, only: [:show, :edit, :update, :destroy]
   def index
   	@images = Image.all
-    @galleries = Gallery.all
+    @galleries = Gallery.includes(:images)
   end
 
   def new

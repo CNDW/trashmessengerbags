@@ -7,12 +7,16 @@ class ProductType < ActiveRecord::Base
   validates :desc, format: /\A[\sa-z0-9,.?!@#$%^&*_-]+\Z/i
   accepts_nested_attributes_for :fields, allow_destroy: true
   
-  def self.categories
-    ProductType.all.map { |product| product.category }.uniq
+  def categories
+    ProductType.distinct.pluck(:category)
   end
 
   def product_list
     self.products.map { |product| product.name }
+  end
+
+  def type
+    self.name
   end
 
   def self.by_category #returns a hash of ProductCategory collections, sorted by categorization
