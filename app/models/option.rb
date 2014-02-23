@@ -5,6 +5,7 @@ class Option < ActiveRecord::Base
   has_many :images, through: :gallery_indices, dependent: :destroy
 	has_many :customizers, dependent: :destroy
   has_many :products, through: :customizers, dependent: :destroy
+  has_many :custom_fields, as: :fieldable, dependent: :destroy
   
   store_accessor :properties
   

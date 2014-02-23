@@ -69,6 +69,8 @@ class OptionTypesController < SecureController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def option_type_params
-      params.require(:option_type).permit(:name, fields_attributes: [:name, :product_type_id, :field_type, :required, :public, :_destroy, :id])
+      params.require(:option_type).permit(:name).tap do |whitelist|
+        whitelist[:properties] = params[:option_type][:properties]
+      end
     end
 end

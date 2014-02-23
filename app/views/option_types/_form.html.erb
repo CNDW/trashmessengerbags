@@ -16,10 +16,11 @@
     <%= f.text_field :name %>
   </div>
 
-  <%= f.fields_for :fields do |builder| %>
-    <%= render 'field_fields', f: builder %>
+  <%= f.fields_for :properties, OpenStruct.new(@option_type.properties) do |builder| %>
+    <% @option_type.custom_fields.each do |field| %>
+      <%= render "layouts/fields/#{field.field_type}", field: field, f: builder %>
+    <% end %>
   <% end %>
-  <%= link_to_add_fields "Add Field", f, :fields %><br>
   
   <div class="actions">
     <%= f.submit %>

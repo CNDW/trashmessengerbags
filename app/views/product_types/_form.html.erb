@@ -12,26 +12,22 @@
   <% end %>
 
   <div class="field">
+    <%= f.select(:category, ProductType.categories, { include_blank: '' }) %>
+    <button class="add_category" type="button">Add a new category</button>
+  </div>
+
+  <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
 
   <%= f.fields_for :properties, OpenStruct.new(@product_type.properties) do |builder| %>
-    <% @product_type.fields.each do |field| %>
-      <%= render "custom_fields/#{field.field_type}", field: field, f: builder %>
+    <% @product_type.custom_fields.each do |field| %>
+      <%= render "layouts/fields/#{field.field_type}", field: field, f: builder %>
     <% end %>
   <% end %>
 
-  <div class="field">
-    <%= f.select(:category, ProductType.categories, { include_blank: '' }) %>
-    <button class="add_category" type="button">Add a new category</button>
-  </div>
 
-  <%= f.fields_for :fields do |builder| %>
-    <%= render 'custom_fields/fields', f: builder %>
-  <% end %>
-  <%= link_to_add_fields "Add Field", f, :fields %>
-  
   <div class="actions">
     <%= f.submit %>
   </div>

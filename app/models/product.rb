@@ -4,6 +4,7 @@ class Product < ActiveRecord::Base
   has_many :customizers, as: :customizable, dependent: :destroy
   has_many :options, through: :customizers, dependent: :destroy
   has_many :custom_items, autosave: true, dependent: :nullify
+  has_many :custom_fields, as: :fieldable, dependent: :destroy
 
   belongs_to :product_type, autosave: true
   
