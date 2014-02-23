@@ -1,0 +1,12 @@
+<div class="panel-group">
+	<% type.products.each do |product| %>
+		<div class="panel panel-default">
+
+			<div class="panel heading">
+				<h2><%= product.name %></h2>
+			</div>
+			<p><%= product.desc %></p>
+			
+		</div>		
+	<% end %>
+</div>

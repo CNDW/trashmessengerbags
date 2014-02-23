@@ -47,6 +47,7 @@ gem 'forgery', '~> 0.5.0'
 gem 'table_cloth', :github => "bobbytables/table_cloth"
 # Use Draper for view models aka decorators
 gem 'draper', '~> 1.3'
+gem 'redcarpet'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development

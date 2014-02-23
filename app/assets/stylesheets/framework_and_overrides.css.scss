@@ -32,7 +32,9 @@ main {
   padding:0 0 70px 0;
   margin-top: 0px;
 }
-
+table {
+  background-color: rgb(255, 255, 255);
+}
 section {
   @extend .row;
   margin-top: 20px;

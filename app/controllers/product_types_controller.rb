@@ -69,6 +69,8 @@ class ProductTypesController < SecureController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_type_params
-      params.require(:product_type).permit(:name, :price, :desc, :category, fields_attributes: [:name, :product_type_id, :field_type, :required, :_destroy, :id])
+      params.require(:product_type).permit(:name, :price, :desc, :category, fields_attributes: [:name, :field_id, :field_type, :public, :required, :_destroy, :id]).tap do |whitelist|
+        whitelist[:properties] = params[:product][:properties]
+      end
     end
 end

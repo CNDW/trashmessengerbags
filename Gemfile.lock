@@ -193,6 +193,7 @@ GEM
       ffi (>= 0.5.0)
     rdoc (4.1.1)
       json (~> 1.4)
+    redcarpet (3.1.1)
     request_store (1.0.5)
     rmagick (2.13.2)
     rspec (2.14.1)
@@ -293,6 +294,7 @@ DEPENDENCIES
   rails (= 4.0.0)
   rails_12factor (= 0.0.2)
   rails_layout
+  redcarpet
   rmagick (~> 2.13.2)
   rspec-rails
   sass-rails (~> 4.0.1)

@@ -1,4 +1,6 @@
 Trashmessengerbags::Application.routes.draw do
+  resources :custom_fields
+
   resources :option_types
   resources :options
 

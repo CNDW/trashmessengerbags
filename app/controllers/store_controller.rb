@@ -1,8 +1,6 @@
 class StoreController < ApplicationController
   def catalogue
-  	render locals: {
-  		products_by_category: ProductType.by_categories
-  	}
+  	@products_by_category = ProductType.by_categories
   end
 
   def premade

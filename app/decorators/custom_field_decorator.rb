@@ -1,4 +1,4 @@
-class CustomItemStepsDecorator < Draper::Decorator
+class CustomFieldDecorator < ApplicationDecorator
   delegate_all
 
   # Define presentation-specific methods here. Helpers are accessed through

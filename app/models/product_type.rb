@@ -1,7 +1,7 @@
 class ProductType < ActiveRecord::Base
   has_many :products, autosave: true, dependent: :destroy
   has_many :custom_items, autosave: true, dependent: :nullify
-  has_many :fields, class_name: "ProductField"
+  has_many :fields, as: :fieldable, class_name: "CustomField"
 
   has_many :gallery_indices, as: :gallery_indexable, dependent: :destroy
   has_many :images, through: :gallery_indices, dependent: :destroy

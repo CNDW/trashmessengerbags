@@ -1,45 +1,18 @@
 <%= render partial: "store/store_nav" %>
 <div class="col-xs-4 col-sm-3 col-md-2 sidebar-catalogue">
-	<%= render partial: "store/sidebar_nav", locals: {products_by_category: products_by_category} %>
+	<%= render partial: "store/sidebar_nav", locals: {products_by_category: @products_by_category} %>
 </div>
-<% products_by_category.each do |category, types| %>
+<% @products_by_category.each do |category, types| %>
 	<div class="col-xs-8 col-sm-9 col-md-10">
 			
 		<% types.each do |type| %>
 
 			<div class="store-item type-<%= type.id %> col-xs-12 col-sm-12 col-md-5">
-				<div class="carousel slide catalogue-carousel" data-ride="carousel" id="carousel-<%= type.id %>">
-					
-				  <div class="carousel-inner">
-				  	<% type.images.each_with_index do |image, index| %>
-					    <div class="carousel-img item<% if index == 0 %> active<% end %>">
-					      <img src="<%= image.image_data_url %>" alt="loading <%= index %>">
-					    </div>
-					  <% end %>
-				  </div>
-				
-				  <ol class="carousel-indicators catalogue-indicators">
-				  	<% type.images.each_with_index do |image, index| %>
-				    	<li data-target="#carousel-<%= type.id %>" data-slide-to="<%= index %>" <% if index == 0 %>class="active" <% end %>>
-					      <img src="<%= image.image_data_url %>" alt="loading <%= index %>" width="100" height="100">
-				    	</li>
-				    <% end %>
-				  </ol>
-
-				</div>
+				<%= render partial: "store/catalogue/carousels", locals:{type: type} %>
 			</div>
 
 			<div class="store-item store-details type-<%= type.id %> col-xs-12 col-sm-12 col-md-7">
-				<div class="panel-group">
-					<% type.products.each do |product| %>
-						<div class="panel panel-default">
-							<div class="panel heading">
-								<h2><%= product.name %></h2>
-							</div>
-							<p><%= product.desc %></p>
-						</div>		
-					<% end %>
-				</div>
+				<%= render partial: "store/catalogue/items", locals:{type: type} %>
 			</div>
 
 		<% end %>

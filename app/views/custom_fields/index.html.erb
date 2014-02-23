@@ -1,0 +1,18 @@
+<h1>Custom Fields</h1>
+
+<%= form_tag new_custom_field_path, method: :get do %>
+  <%= select_tag :fieldable_id, options_from_collection_for_select(ProductType.all, :id, :name) %>
+  <%= submit_tag "New Custom field", name: nil, class: "btn btn-primary" %>
+<% end %>
+
+<%= simple_table_for @custom_fields do |t| %>
+  <% t.column :name %>
+  <% t.column :field_type %>
+  <% t.column :fieldable_type %>
+  <% t.column :required %>
+  <% t.column :show_public %>
+  <% t.actions do %>
+    <% action {|field| link_to "Edit", edit_custom_field_path(field),class: "btn btn-primary"} %>
+    <% action {|field| link_to "Delete", field, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you wish to delete #{field.name}?" }} %>
+  <% end %>
+<% end %> 
