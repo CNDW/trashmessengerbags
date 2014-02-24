@@ -1,8 +1,11 @@
 Trashmessengerbags::Application.routes.draw do
-  resources :custom_fields
-
-  resources :option_types
-  resources :options
+  resources :custom_fields do
+    collection do
+      get :edit_multiple
+      put :update_multiple
+      post :create_multiple
+    end
+  end
 
   get "store/catalogue"
   get "store/premade"
@@ -20,14 +23,16 @@ Trashmessengerbags::Application.routes.draw do
   resources :custom_item_steps
 
   resources :product_types
+  resources :products
+
+  resources :option_types
+  resources :options
   
   resources :admins
   
   resources :sessions, only: [:new, :create, :destroy]
   match '/adminsignin', to: 'sessions#new', via: 'get'
   match '/adminsignout', to: 'sessions#destroy', via: 'delete'
-
-  resources :products
   
   root 'home_pages#home'
 

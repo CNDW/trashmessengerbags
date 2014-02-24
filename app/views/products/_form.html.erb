@@ -24,11 +24,13 @@
     <%= f.text_field :price %>
   </div>
 
-  <%= f.fields_for :properties, OpenStruct.new(@product.properties) do |builder| %>
+  <%= f.fields_for "properties", OpenStruct.new(@product.properties) do |builder| %>
     <% @product.custom_fields.each do |field| %>
       <%= render "layouts/fields/#{field.field_type}", field: field, f: builder %>
     <% end %>
   <% end %>
+  
+  <%= link_to_edit_custom_fields("Edit Fields", @product) %><br>
 
   <% OptionType.all.each do |type| %> 
     <%= type.name.singularize %><input class="option-type-selectall" id="<%=type.id%>" type="checkbox"><br>

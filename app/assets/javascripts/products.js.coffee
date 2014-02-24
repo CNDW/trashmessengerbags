@@ -8,8 +8,8 @@ $(document).on "click", ".add_category", ->
 		$(".new_product_category #product_type_category").append("<option value='" + category + "'>" + category + "</option>")
 
 $(document).on "click", "form .remove_fields", (event) ->
-	$(this).prev('input[type=hidden]').val(1)
-	$(this).closest('fieldset').hide()
+	#$(this).prev('input[type=hidden]').val(1)
+	$(this).closest('fieldset').empty()
 	event.preventDefault()
 
 $(document).on "click", "form .add_fields", (event) ->

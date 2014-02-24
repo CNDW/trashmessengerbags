@@ -9,21 +9,12 @@ class Product < ActiveRecord::Base
   belongs_to :product_type, autosave: true
   
   validates :name, presence: true, uniqueness: true
-  validate :validate_properties
 
   store_accessor :properties
 
   accepts_nested_attributes_for :images, allow_destroy: true, :reject_if => proc{ |attr| attr[:image_data].nil? }
 
   delegate :categories, :category, :type, :type_images, :to => :product_type, :prefix => false
-
-  def validate_properties
-    product_type.fields.each do |field|
-      if field.required? && properties[field.name].blank?
-        errors.add field.name, "must not be blank"
-      end
-    end
-  end
 
   def thumbs
     self.images.map { |img| img.thumb }

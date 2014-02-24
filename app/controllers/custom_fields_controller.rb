@@ -1,5 +1,5 @@
 class CustomFieldsController < SecureController
-  before_action :set_custom_field, only: [:show, :edit, :update, :destroy]
+  before_action :set_custom_field, only: [:show, :update, :destroy]
 
   # GET /custom_fields
   # GET /custom_fields.json
@@ -61,6 +61,16 @@ class CustomFieldsController < SecureController
     end
   end
 
+  def edit_multiple
+    @custom_fields = CustomField.all.where(fieldable_id: params[:fieldable_id], fieldable_type: params[:fieldable_type])
+    @parent = params[:fieldable_type].constantize.find(params[:fieldable_id])
+  end
+
+  def update_multiple
+    CustomField.update_fields(custom_fields_params)
+    redirect_to edit_product_url(1)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_custom_field
@@ -70,5 +80,9 @@ class CustomFieldsController < SecureController
     # Never trust parameters from the scary internet, only allow the white list through.
     def custom_field_params
       params.require(:custom_field).permit(:name, :field_type, :fieldable_id, :fieldable_type, :required, :show_public)
+    end
+
+    def custom_fields_params
+      params.require(:custom_fields)
     end
 end

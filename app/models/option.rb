@@ -8,16 +8,7 @@ class Option < ActiveRecord::Base
   has_many :custom_fields, as: :fieldable, dependent: :destroy
   
   store_accessor :properties
-  
-  validate :validate_properties
 
   delegate :type, to: :option_type, prefix: false
 
-  def validate_properties
-    option_type.fields.each do |field|
-      if field.required? && properties[field.name].blank?
-        errors.add field.name, "must not be blank"
-      end
-    end
-  end
 end
