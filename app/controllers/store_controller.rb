@@ -8,9 +8,4 @@ class StoreController < ApplicationController
 
   def custom
   end
-
-  private
-  	def locals(values)
-  		render locals: values
-  	end
 end

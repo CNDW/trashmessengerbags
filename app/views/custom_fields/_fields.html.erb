@@ -1,4 +1,5 @@
 <fieldset>
+	<h4><%= f.object.name %></h4>
   <%= f.hidden_field :fieldable_id %>
   <%= f.hidden_field :fieldable_type %>
 	<%= f.select :field_type, %w[text_field check_box text_area] %>

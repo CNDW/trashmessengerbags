@@ -62,7 +62,8 @@ class ProductsController < SecureController
 
 	private
 		def set_product
-			@product = Product.find(params[:id])
+			@product = Product.includes(:options, :images, :custom_fields).find(params[:id])
+      @option_types = OptionType.includes(:options)
 		end
 
 		def product_params

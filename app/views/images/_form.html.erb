@@ -1,15 +1,6 @@
-<% if @image.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
-    <ul>
-      <% @image.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>  
-<% end %>
 <div class="image_edit">
   <%= form_for @image, html: { multipart: true } do |f| %>
+  <%= render "layouts/forms/errors", object: @image %>
 
     <div class="field">
       <%= f.label :name %>

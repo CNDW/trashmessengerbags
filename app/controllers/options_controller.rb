@@ -28,7 +28,7 @@ class OptionsController < SecureController
 
     respond_to do |format|
       if @option.save
-        format.html { redirect_to @option, notice: 'option was successfully created.' }
+        format.html { redirect_to options_url, notice: 'option was successfully created.' }
         format.json { render action: 'show', status: :created, location: @option }
       else
         format.html { render action: 'new' }
@@ -40,11 +40,9 @@ class OptionsController < SecureController
   # PATCH/PUT /options/1
   # PATCH/PUT /options/1.json
   def update
-    @option.attributes = {'product_ids' => []}.merge(params[:option] || {})
-    
     respond_to do |format|
       if @option.update(option_params)
-        format.html { redirect_to @option, notice: 'option was successfully updated.' }
+        format.html { redirect_to options_url, notice: 'option was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

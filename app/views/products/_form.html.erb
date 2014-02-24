@@ -1,15 +1,5 @@
 <%= form_for setup_image_upload(@product) do |f| %>
-  <% if @product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
-
-      <ul>
-      <% @product.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render "layouts/forms/errors", object: @product %>
 
   <%= f.hidden_field :product_type_id %>
   <h2><%= @product.product_type.name.singularize %></h2>
@@ -24,15 +14,9 @@
     <%= f.text_field :price %>
   </div>
 
-  <%= f.fields_for "properties", OpenStruct.new(@product.properties) do |builder| %>
-    <% @product.custom_fields.each do |field| %>
-      <%= render "layouts/fields/#{field.field_type}", field: field, f: builder %>
-    <% end %>
-  <% end %>
-  
-  <%= link_to_edit_custom_fields("Edit Fields", @product) %><br>
+  <%= render "layouts/forms/custom_fields", object: @product, f: f %>
 
-  <% OptionType.all.each do |type| %> 
+  <% @option_types.each do |type| %> 
     <%= type.name.singularize %><input class="option-type-selectall" id="<%=type.id%>" type="checkbox"><br>
     <%= f.collection_check_boxes(:option_ids, type.options, :id, :name, options = {"checked" => :option_ids}, html = { class: "option-checkboxes option-".concat(type.id.to_s) }) %><br>
   <% end %>

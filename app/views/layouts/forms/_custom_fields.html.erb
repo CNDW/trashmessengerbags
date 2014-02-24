@@ -1,0 +1,7 @@
+<%= f.fields_for "properties", OpenStruct.new(object.properties) do |builder| %>
+  <% object.custom_fields.each do |field| %>
+    <%= render "layouts/fields/#{field.field_type}", field: field, f: builder %>
+  <% end %>
+<% end %>
+
+<%= link_to_edit_custom_fields("Edit Fields", object) %><br>

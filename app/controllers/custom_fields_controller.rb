@@ -7,57 +7,12 @@ class CustomFieldsController < SecureController
     @custom_fields = CustomField.all
   end
 
-  # GET /custom_fields/1
-  # GET /custom_fields/1.json
-  def show
-  end
-
-  # GET /custom_fields/new
-  def new
-    @custom_field = CustomField.new
-  end
-
-  # GET /custom_fields/1/edit
-  def edit
-  end
-
-  # POST /custom_fields
-  # POST /custom_fields.json
-  def create
-    @custom_field = CustomField.new(custom_field_params)
-
-    respond_to do |format|
-      if @custom_field.save
-        format.html { redirect_to @custom_field, notice: 'Custom field was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @custom_field }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @custom_field.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /custom_fields/1
-  # PATCH/PUT /custom_fields/1.json
-  def update
-    respond_to do |format|
-      if @custom_field.update(custom_field_params)
-        format.html { redirect_to @custom_field, notice: 'Custom field was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @custom_field.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # DELETE /custom_fields/1
   # DELETE /custom_fields/1.json
   def destroy
     @custom_field.destroy
     respond_to do |format|
-      format.html { redirect_to custom_fields_url }
-      format.json { head :no_content }
+      format.js
     end
   end
 
@@ -67,8 +22,8 @@ class CustomFieldsController < SecureController
   end
 
   def update_multiple
-    CustomField.update_fields(custom_fields_params)
-    redirect_to edit_product_url(1)
+    CustomField.update_fields(custom_fields_params) if params[:custom_fields]
+    redirect_to params[:parent_url]
   end
 
   private

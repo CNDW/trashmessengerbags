@@ -1,15 +1,6 @@
 <%= form_for @custom_item do |f| %>
-  <% if @custom_item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@custom_item.errors.count, "error") %> prohibited this custom_item from being saved:</h2>
+  <%= render partial: "layouts/forms/errors", locals: {object: @custom_item} %>
 
-      <ul>
-      <% @custom_item.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
   <div class="custom_products">
     <div class="category" >
       Select a product category to begin.<br>

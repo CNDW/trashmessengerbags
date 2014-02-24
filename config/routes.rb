@@ -1,9 +1,8 @@
 Trashmessengerbags::Application.routes.draw do
-  resources :custom_fields do
+  resources :custom_fields, only: [:index, :destroy] do
     collection do
       get :edit_multiple
       put :update_multiple
-      post :create_multiple
     end
   end
 
