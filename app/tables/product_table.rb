@@ -31,7 +31,7 @@ class ProductTable < TableCloth::Base
   #
   # If action provides an "if:" option, it will call that method on the object. It can also take a block with an arity of 1.
 
-  column :name, :price, :desc
+  column :name, :price
   column :product_type do |object|
     "#{object.type} / #{object.category}"
   end

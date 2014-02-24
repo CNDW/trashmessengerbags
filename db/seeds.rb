@@ -15,9 +15,9 @@ image_paths = Array.new(16).map.with_index { |x, i| Rails.root.join("db", "image
 
 product_hash.each do |category, types|
 	types.each do |type, models|
-		ProductType.create(name: type, desc: Forgery(:trash).sentence, category: category)
+		ProductType.create(name: type, category: category)
 		models.each do |model|
-			Product.create( name: model[0], desc: Forgery(:trash).sentence, price: Random.rand(300), product_type: ProductType.find_by(name: type), images_attributes: [title: model[0], image_data: File.open( Rails.root.join("db", "imageseed", "#{model[1]}") ) ] )
+			Product.create( name: model[0], price: Random.rand(300), product_type: ProductType.find_by(name: type), images_attributes: [title: model[0], image_data: File.open( Rails.root.join("db", "imageseed", "#{model[1]}") ) ] )
 		end 
 	end	
 end

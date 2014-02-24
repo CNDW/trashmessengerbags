@@ -20,7 +20,7 @@ describe ProductType do
 
 	it "has only alpha-numeric strings in it's fields" do
 		bad_format = "[]{}:;()/\\\"\'"
-		build(:product_type, name: bad_format, category: bad_format, desc: bad_format).should_not be_valid
+		build(:product_type, name: bad_format, category: bad_format).should_not be_valid
 	end
 
 end

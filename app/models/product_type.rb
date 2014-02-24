@@ -8,7 +8,6 @@ class ProductType < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: true, format: /\A[\sa-z0-9]+\Z/i
   validates :category, presence: true, format: /\A[\sa-z0-9]+\Z/i
-  validates :desc, format: /\A[\sa-z0-9,.?!@#$%^&*_-]+\Z/i
   
   def self.categories
     @categories ||= ProductType.distinct.pluck(:category)

@@ -34,7 +34,7 @@ class CustomFieldsController < SecureController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def custom_field_params
-      params.require(:custom_field).permit(:name, :field_type, :fieldable_id, :fieldable_type, :required, :show_public)
+      params.require(:custom_field).permit(:name, :field_type, :fieldable_id, :fieldable_type, :required, :catalogue, :custom_shop, :in_stock)
     end
 
     def custom_fields_params

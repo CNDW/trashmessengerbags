@@ -46,6 +46,6 @@ class ImagesController < SecureController
       @image = Image.find(params[:id])
     end
   	def image_params
-  		params.require(:image).permit(:name, :title, :desc, :image_data, galleries_attributes: [:name, :title, :desc, :slideshow], gallery_ids: [])
+  		params.require(:image).permit(:name, :title, :image_data, galleries_attributes: [:name, :title, :desc, :slideshow], gallery_ids: [])
   	end
 end

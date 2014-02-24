@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140223165453) do
+ActiveRecord::Schema.define(version: 20140224202926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,9 +35,11 @@ ActiveRecord::Schema.define(version: 20140223165453) do
     t.integer  "fieldable_id"
     t.string   "fieldable_type"
     t.boolean  "required"
-    t.boolean  "show_public"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "catalogue"
+    t.boolean  "custom_shop"
+    t.boolean  "in_stock"
   end
 
   add_index "custom_fields", ["fieldable_id", "fieldable_type"], name: "index_custom_fields_on_fieldable_id_and_fieldable_type", using: :btree
@@ -65,9 +67,7 @@ ActiveRecord::Schema.define(version: 20140223165453) do
 
   create_table "galleries", force: true do |t|
     t.string   "name"
-    t.string   "desc"
     t.string   "title"
-    t.boolean  "slideshow"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -85,7 +85,6 @@ ActiveRecord::Schema.define(version: 20140223165453) do
 
   create_table "images", force: true do |t|
     t.string   "title"
-    t.string   "desc"
     t.string   "image_data"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -113,7 +112,6 @@ ActiveRecord::Schema.define(version: 20140223165453) do
   create_table "product_types", force: true do |t|
     t.string   "name"
     t.decimal  "price",      precision: 8, scale: 2
-    t.string   "desc"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "category"
@@ -123,7 +121,6 @@ ActiveRecord::Schema.define(version: 20140223165453) do
   create_table "products", force: true do |t|
     t.string   "name"
     t.decimal  "price",           precision: 8, scale: 2
-    t.string   "desc"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "product_type_id"

@@ -30,7 +30,7 @@ class ProductTypeTable < TableCloth::Base
   # end
   #
   # If action provides an "if:" option, it will call that method on the object. It can also take a block with an arity of 1.
-  column :name, :price, :desc, :category
+  column :name, :price, :category
   column :images, using: ThumbnailColumn
   actions do
     action {|object| link_to "Edit", edit_product_type_path(object),class: "btn btn-primary" } 

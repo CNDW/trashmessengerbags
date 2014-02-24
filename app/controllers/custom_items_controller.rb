@@ -73,6 +73,6 @@ class CustomItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def custom_item_params
-      params.require(:custom_item).permit(:product_type_id, :category, :product_id)
+      params.require(:custom_item).permit(:product_type_id, :category, :product_id, :name, :price)
     end
 end
