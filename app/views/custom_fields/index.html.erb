@@ -5,7 +5,6 @@
   <% t.column :field_type %>
   <% t.column :fieldable_type %>
   <% t.column :required %>
-  <% t.column :show_public %>
   <% t.actions do %>
     <% action {|field| link_to "Delete", field, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you wish to delete #{field.name}?" }} %>
   <% end %>

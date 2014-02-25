@@ -5,6 +5,8 @@
 	<%= f.select :field_type, %w[text_field check_box text_area] %>
 	<%= f.text_field :name, placeholder: "field_name" %>
 	<%= f.check_box :required %><%= f.label :required %>
-	<%= f.check_box :show_public %><%= f.label :show_public %>
+	<%= f.check_box :catalogue %><%= f.label :catalogue %>
+	<%= f.check_box :custom_shop %><%= f.label :custom_shop %>
+	<%= f.check_box :in_stock %><%= f.label :in_stock %>
 	<%= link_to "[remove]", '#', class: "remove_fields" %>
 </fieldset>

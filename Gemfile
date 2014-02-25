@@ -45,6 +45,8 @@ gem 'wicked'
 gem 'forgery', '~> 0.5.0'
 # Use tablecloth for view table creation
 gem 'table_cloth', :github => "bobbytables/table_cloth"
+gem 'formtastic'
+gem 'formtastic-bootstrap'
 # Use Draper for view models aka decorators
 gem 'draper', '~> 1.3'
 gem 'redcarpet'

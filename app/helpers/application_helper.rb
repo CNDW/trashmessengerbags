@@ -18,4 +18,8 @@ module ApplicationHelper
 	def edit_parent_path(parent_object)
 		"/#{parent_object.class.to_s.underscore.pluralize}/#{parent_object.id}/edit"
 	end
+
+	def required_field_check(field)
+		"*" if field.required
+	end
 end
