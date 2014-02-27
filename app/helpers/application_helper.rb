@@ -22,4 +22,9 @@ module ApplicationHelper
 	def required_field_check(field)
 		"*" if field.required
 	end
+
+	def field_settings_for(field)
+		store_sections = %w[catalogue custom_shop in_stock].map{|x| "#{x.to_s.humanize}" if field.send(x)}.select{|x|!x.nil?}.join(" / ")
+		"The Field will display in the following store sections: #{store_sections}" unless store_sections.empty?
+	end
 end

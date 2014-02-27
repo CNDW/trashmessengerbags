@@ -13,6 +13,7 @@ class CustomFieldsController < SecureController
     @custom_field.destroy
     respond_to do |format|
       format.js
+      format.html { redirect_to custom_fields_url }
     end
   end
 
