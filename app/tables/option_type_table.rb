@@ -1,14 +1,14 @@
-class ProductTable < TableCloth::Base
+class OptionTypeTable < TableCloth::Base
   include TableCloth::Extensions::Actions
   # Define columns with the #column method
   # column :name, :email
-  
+
   # Columns can be provided a block
   #
   # column :name do |object|
   #   object.downcase
   # end
-
+  #
   # Columns can also have conditionals if you want.
   # The conditions are checked against the table's methods.
   # As a convenience, the table has a #view method which will return the current view context.
@@ -31,17 +31,9 @@ class ProductTable < TableCloth::Base
   # end
   #
   # If action provides an "if:" option, it will call that method on the object. It can also take a block with an arity of 1.
-
-  column :name, :price
-  column :product_type do |object|
-    "#{object.type} / #{object.category}"
-  end
-
-  column :images, using: ThumbnailColumn
-
+  column :name, :id
   actions do
-    action {|object| link_to "Edit", edit_product_path(object),class: "btn btn-primary"}
-    action {|object| link_to "Delete", object, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you wish to delete #{object.name}?" }}
+    action {|object| link_to "Edit", edit_option_type_path(object),class: "btn btn-primary" } 
+    action {|object| link_to "Delete", object, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you wish to delete #{object.name}?" } } 
   end
-
 end

@@ -3,12 +3,4 @@
 <%= link_to "New Custom Item", new_custom_item_path, class: "btn btn-primary" %>
 <br />
 
-<%= simple_table_for @custom_items do |t| %>
-  <% t.column :category %>
-  <% t.column :type %>
-  <% t.column :name %>
-  <% t.actions do %>
-    <% action {|custom_item| link_to "Edit", edit_custom_item_path(custom_item),class: "btn btn-primary"} %>
-    <% action {|custom_item| link_to "Delete", custom_item, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you wish to delete #{custom_item.category}?" }} %>
-  <% end %>
-<% end %>
+<%= simple_table_for @custom_items, with: CustomItemTable %>

@@ -1,6 +1,8 @@
 <%= form_for(@option_type) do |f| %>
   <%= render "layouts/forms/errors", object: @option_type %>
 
+	<%= link_to_edit_custom_fields("Edit Fields", @option_type) %><br>
+
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>

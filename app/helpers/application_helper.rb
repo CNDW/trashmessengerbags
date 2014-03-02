@@ -24,7 +24,7 @@ module ApplicationHelper
 	end
 
 	def field_settings_for(field)
-		store_sections = %w[catalogue custom_shop in_stock].map{|x| "#{x.to_s.humanize}" if field.send(x)}.select{|x|!x.nil?}.join(" / ")
+		store_sections = %w[catalogue custom_shop in_stock].keep_if{|x| field.send(x)}.each{|x| x.humanize}.join(" / ")
 		"The Field will display in the following store sections: #{store_sections}" unless store_sections.empty?
 	end
 end

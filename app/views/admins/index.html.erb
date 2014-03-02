@@ -3,11 +3,4 @@
 <%= link_to "New Admin", new_admin_path, class: "btn btn-primary" %>
 <br />
 
-<%= simple_table_for @admins do |t| %>
-  <% t.column :name %>
-  <% t.column :email %>
-  <% t.actions do %>
-    <% action {|admin| link_to "Edit", edit_admin_path(admin),class: "btn btn-primary"} %>
-    <% action {|admin| link_to "Delete", admin, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you wish to delete #{admin.name}?" }} %>
-  <% end %>
-<% end %>
+<%= simple_table_for @admins, with: AdminTable %>

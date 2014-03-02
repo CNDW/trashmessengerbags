@@ -1,4 +1,5 @@
 class ProductTypeTable < TableCloth::Base
+  include TableCloth::Extensions::Actions
   # Define columns with the #column method
   # column :name, :email
 

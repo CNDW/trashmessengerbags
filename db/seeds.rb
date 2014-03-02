@@ -33,5 +33,5 @@ options_hash.each do |type, options|
 	end
 end
 
-Gallery.create( name: "home_carousel", title: "Home", slideshow: true, desc: Forgery(:trash).sentence )
-16.times { |i| Image.create(name: Forgery(:trash).name, title: Forgery(:trash).name, desc: Forgery(:trash).sentence, image_data: File.open(image_paths[i]), galleries: [Gallery.find_by(name: "home_carousel")] ) }
+Gallery.create( name: "home_carousel", title: "Home" )
+16.times { |i| Image.create(name: Forgery(:trash).name, title: Forgery(:trash).name, image_data: File.open(image_paths[i]), galleries: [Gallery.find_by(name: "home_carousel")] ) }

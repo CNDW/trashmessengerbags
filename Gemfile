@@ -44,11 +44,7 @@ gem 'wicked'
 # Use forgery for seed data creation
 gem 'forgery', '~> 0.5.0'
 # Use tablecloth for view table creation
-gem 'table_cloth', :github => "bobbytables/table_cloth"
-gem 'formtastic'
-gem 'formtastic-bootstrap'
-# Use Draper for view models aka decorators
-gem 'draper', '~> 1.3'
+gem 'table_cloth'
 gem 'redcarpet'
 
 # Use Capistrano for deployment
